@@ -1,78 +1,53 @@
-// "use strict";
-//
-// console.log('hello world');
-//
-// console.log(parseInt('17 dogs'));
-//
-// var whatIsWord = prompt('favorite work word?');
-//
-// console.log(whatIsWord);
-//
-// // lets define function
-//
-// function doTheThing(input) {
-//     var output = input + ' stringgggg';
-//     return output;
-// }
-//
-// console.log(doTheThing('hotdog'));
-//
-// function addStuff(x, y) {
-//     return x + y;
-// }
-//
-// console.log(addStuff(17, 18));
-//
-// // lets make a 'bad' function
-//
-// function logToConsole(info) {
-//     return console.log(info + "info to keep in mind");
-// }
-//
-// var needThisForLater = logToConsole('bengal tigers');
-//
-// console.log(needThisForLater);
-//
-// function addingToString(str) {
-//     var finalString = str + "is a string";
-// }
+"use strict";
 
-// alert('hello world');
-
-// var slices = 8;
+// console.log(parseInt("17 hot dogs"));
+// console.log("17 hot dogs");
 //
-// while(slices > 0) {
-//     console.log('i will have a slice');
-//     slices = slices -1;
-//     if (slices > 1) {
-//         console.log('now there is ' + slices + ' slices left');
-//     } else {
-//         console.log('now there is ' + slices + ' slice left');
-//     }
-// }
+// var whatIsWord = prompt("What's your favorite work word?");
+//
+// console.log(whatIsWord + " is her favorite work word ;) ");
 
-// psuedocode
-// ask user for input
-// declare a user input variable and store input
-// make variable to store the accumilating total
-// add the cost of new items to that total
+function doTheThing(input) {
+    return input + " made into a string";
+}
 
+console.log(doTheThing(true));
 
+function addStuff(x, y) {
+    return x + y;
+}
 
-var custSpend = parseFloat(prompt('how much did you just spend'));
+console.log(addStuff(17, 18));
 
-alert('the total amount you have spent so far is ' + custSpend);
+console.log("I have 8 pizzah slices, I love pizzah");
 
-var total = custSpend;
-var input = '';
-while(input !== "STOP") {
-    input = prompt('how much did you just spend? enter STOP when you want to stop');
-    if (input === "STOP") {
-        alert('okay final total is ' + total);
+var slices = 8;
+
+while(slices > 0) {
+    console.log('I will have a pizzah slice');
+    slices = slices -1;
+    if (slices > 1) {
+        console.log('now there is ' + slices + ' pizzah slices left');
     } else {
-    custSpend = parseFloat(input);
-    total = total + custSpend;
-    alert('the total amount you have spent so far is ' + total.toFixed(2));
+        console.log('now there are no pizzah slices left');
+    }
+}
+
+// pseudo code.... use it
+
+var custSpent = parseFloat(prompt('How much money did you spend at Amazon this week?')).toFixed(2);
+
+alert('Your total so far is $' + custSpent);
+
+var total = ' $' + parseFloat(custSpent);
+var input = '';
+while(input !== "no") {
+    input = prompt("How much more did you just spend? Enter no when you want to stop.");
+    if (input === "NO") {
+        alert("Okay, fine");
+    } else {
+    total += custSpent;
+    alert("The total amount you have spent so far is " + total);
     }
 }
 
