@@ -22,7 +22,6 @@
     console.log(names[1]);
     console.log(names[2]);
     console.log(names[3]);
-
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
@@ -52,22 +51,22 @@
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 
-    var numbers = [1, 2, 3, 4, 5];
-
-    function first(numbers) {
-    return [0].toString();
+    function first(arr) {
+    return arr[0];
     }
 
-    function second(numbers) {
-        return [1].toString();
+    console.log(first(['red', 'orange', 'yellow', 'green', 'blue', 'purple']));
+
+    function second(arr) {
+        return arr[1];
     }
 
-    function last(numbers) {
-        return [4].toString();
+    console.log(second(['red', 'orange', 'yellow', 'green', 'blue', 'purple']));
+
+    function last(arr) {
+        return arr[arr.length-1];
     }
 
-    console.log(first());
-    console.log(second());
-    console.log(last());
+    console.log(last(['red', 'orange', 'yellow', 'green', 'blue', 'purple']));
 
 })();
