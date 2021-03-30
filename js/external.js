@@ -42,9 +42,9 @@ if (classOpen && noConflict === true) {
 
 // part 3.4
 var offerNotExpired = true;
-var question = confirm('Are you a member of have you bought 2 items?');
+var question = confirm('Are you a member or have you bought 2 items?');
 
-if (question == true) {
+if (question === true) {
         alert('You qualify for offer!');
     }  else {
         alert("Sorry, offer does not apply");
