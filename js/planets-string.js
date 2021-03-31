@@ -17,7 +17,12 @@
      * TODO:
      * Create a string with <br> tags between each planet. console.log() your
      * results. Why might this be useful?
-     *
+     */
+
+    var breakPlanets = planetsArray.join('<br>');
+    console.log(breakPlanets);
+
+    /**
      * BONUS:
      * Create another string that would display your planets in an undordered
      * list. You will need an opening AND closing <ul> tags around the entire
@@ -26,22 +31,13 @@
      *
      */
 
+    for (var i = planetsArray.length; i--;) {
+        planetsArray[i] = "\n" + '<li>' + planetsArray[i] + '</li>' + "\n";
+    }
 
-    var breakPlanets = planetsArray.join('<br>');
-    console.log(breakPlanets);
+    var planetsString2 = '<ul>' + "\n" + planetsArray.join("") + '\n' + '</ul>';
 
-    var tags = '<ul>';
+    console.log(planetsString2);
 
-    planetsArray.forEach(function(planet) {
-        tags += '<li>' + planet + '</li>';
-    });
-    // for (var i = planetsArray.length; i--;) {
-    //     planetsArray[i] = "\n" + '<li>' + planetsArray[i] + '</li>' + "\n";
-    // }
-    tags += '</ul>';
-
-    var planetsString2 = planetsArray.join("");
-
-    console.log("<ul>" + "\n" + planetsString2 + "\n" + "</ul>");
 
 })();
