@@ -6,13 +6,13 @@
      * Create an array of 4 people's names and store it in a variable called
      * 'names'.
      */
-        var names = ['name1', 'name2', 'name3', 'name4'];
+    var names = ['Jon', 'John', 'Johnny', 'Jonathan'];
     /**
      * TODO:
      * Create a log statement that will log the number of elements in the names
      * array.
      */
-         console.log(names.length);
+    console.log(names.length);
     /**
      * TODO:
      * Create log statements that will print each of the names individually by
@@ -52,21 +52,21 @@
      */
 
     function first(arr) {
-    return arr[0];
+        return arr[0];
     }
-
-    console.log(first(['red', 'orange', 'yellow', 'green', 'blue', 'purple']));
 
     function second(arr) {
         return arr[1];
     }
 
-    console.log(second(['red', 'orange', 'yellow', 'green', 'blue', 'purple']));
-
     function last(arr) {
         return arr[arr.length-1];
     }
 
-    console.log(last(['red', 'orange', 'yellow', 'green', 'blue', 'purple']));
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+
+    console.log(first(colors));
+    console.log(second(colors));
+    console.log(last(colors));
 
 })();
