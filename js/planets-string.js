@@ -13,9 +13,6 @@
 
     console.log(planetsArray);
 
-    var planetsWithBreakTags = planetsArray.join('<br>');
-    console.log(planetsWithBreakTags);
-
     /**
      * TODO:
      * Create a string with <br> tags between each planet. console.log() your
@@ -29,12 +26,22 @@
      *
      */
 
-    for (var i = planetsArray.length; i--;) {
-        planetsArray[i] = "\n" + '<li>' + planetsArray[i] + '</li>' + "\n";
-    }
 
-    var planetsString3 = planetsArray.join("");
+    var breakPlanets = planetsArray.join('<br>');
+    console.log(breakPlanets);
 
-    console.log("<ul>" + "\n" + planetsString3 + "\n" + "</ul>");
+    var tags = '<ul>';
+
+    planetsArray.forEach(function(planet) {
+        tags += '<li>' + planet + '</li>';
+    });
+    // for (var i = planetsArray.length; i--;) {
+    //     planetsArray[i] = "\n" + '<li>' + planetsArray[i] + '</li>' + "\n";
+    // }
+    tags += '</ul>';
+
+    var planetsString2 = planetsArray.join("");
+
+    console.log("<ul>" + "\n" + planetsString2 + "\n" + "</ul>");
 
 })();

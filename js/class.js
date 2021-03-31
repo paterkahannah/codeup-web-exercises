@@ -57,16 +57,75 @@
 //     counter = counter -1;
 // }
 
-var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-var planetsArray = planetsString.split('|');
+// var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
+// var planetsArray = planetsString.split('|');
+//
+//
+// while (var i > planetsArray.length) {
+//     planetsArray[i] = "\n" + '<li>' + planetsArray[i] + '</li>' + "\n";
+// }
+//
+// var planetsString3 = planetsArray.join("");
+//
+// console.log("<ul>" + "\n" + planetsString3 + "\n" + "</ul>");
+//
+// console.log('wat');
 
 
-while (var i > planetsArray.length) {
-    planetsArray[i] = "\n" + '<li>' + planetsArray[i] + '</li>' + "\n";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var tacoma  = {
+    make: 'Toyota',
+    model: 'tacoma',
+    truck: true,
+    seat: 5,
+    color: 'blue',
+    mileage: 10,
+    drive: function (){
+        console.log('vroom');
+        this.mileage++;
+    }
 }
 
-var planetsString3 = planetsArray.join("");
 
-console.log("<ul>" + "\n" + planetsString3 + "\n" + "</ul>");
+function isNew(car) {
+    return car.mileage <= 15;
+}
 
-console.log('wat');
+
+
+
+
+
+
+
+
+
+

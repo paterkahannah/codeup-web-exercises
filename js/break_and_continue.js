@@ -1,20 +1,25 @@
 "use strict";
 
-// var userNum = prompt('enter an odd number between 1-50');
-//
-// while (userNum % 2 !== 0) {
-//     userNum = prompt('enter an odd number between 1-50');
-//     break;
-//     }
+var userNum = prompt('enter an odd number between 1-50');
 
-// for (var i = 1; i <= 49; i++) {
-//     console.log('odd number is');
-//     if (i % 2 === 0) {
-//         break;
-//
-//         //console.log('Yikes! Skipping number ' + i);
-//     } else {
-//         console.log('Here is an odd number: ' + i);
-//     }
-// }
+function check(num) {
+    return num >= 1 && num <= 50 && num % 2 !== 0;
+}
 
+while(true) {
+    if (check(userNum)){
+        break;
+    }
+    userNum = parseInt(prompt("Give me an odd number between 1 and 50 please?"));
+}
+
+for (var i = 1; i <= 49; i++) {
+    if (i % 2 === 0) {
+        continue;
+    } else if (i == userNum) {
+        console.log('Yikes! Skipping number ' + i);
+        continue;
+    } else (i % 2 !== 0); {
+        console.log('Here is an odd number ' + i)
+    }
+}

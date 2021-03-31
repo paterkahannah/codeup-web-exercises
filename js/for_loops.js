@@ -8,10 +8,14 @@ function showMultiplicationTable() {
 
 showMultiplicationTable(7);
 
+console.log('-------------------')
+
 for (var i = 1; i <= 10; i++) {
     var randomNum = Math.floor(Math.random() * 200) + 20;
     randomNum % 2 === 0 ? console.log(randomNum + ' is even') : console.log(randomNum + ' is odd');
 }
+
+console.log('-------------------')
 
 var num = '';
 
@@ -22,6 +26,8 @@ for (var i = 1; i <= 9; i++) {
     console.log(num);
     num = '';
 }
+
+console.log('-------------------')
 
 for (var i = 100; i > 0; i -= 5) {
     console.log(i);

@@ -192,5 +192,3 @@ var response = ask ? parseFloat(prompt('Please enter a number!')) : false ;
     } else {
         alert('That is not a number')
     }
-
-
