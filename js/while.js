@@ -3,7 +3,7 @@
 var counter = 2;
 while (counter <= 65536) {
     console.log(counter);
-    counter = counter * 2 ;
+    counter = counter * 2;
 }
 
 console.log('-----------------------')
@@ -19,5 +19,5 @@ do {
     } else {
         console.log('I cannot sell you ' + sold + ' I only have ' + allCones + ' left');
     }
-}while (allCones > 0);
+} while (allCones > 0);
 console.log('Yay, I sold them all!');

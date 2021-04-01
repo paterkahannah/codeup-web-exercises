@@ -6,7 +6,7 @@ console.log("Hello from External Javascript");
 alert("Welcome to my website!");
 
 // part 2
-var response = prompt ("What's your favorite color?");
+var response = prompt("What's your favorite color?");
 
 alert("Great, " + response + " is my favorite color too.");
 
@@ -15,7 +15,7 @@ var mermaid = parseFloat(prompt('How many days did you rent Little Mermaid?'));
 var bear = parseFloat(prompt("How many days did you rent Brother Bear?"));
 var hercules = parseFloat(prompt("How many days did you rent Hercules?"));
 
-var total = alert("Total cost for the rentals was $" + ((mermaid + bear + hercules)*3));
+var total = alert("Total cost for the rentals was $" + ((mermaid + bear + hercules) * 3));
 
 // part 3.2
 var google = parseFloat(prompt('How many hours did you work at Google?'));
@@ -35,17 +35,17 @@ var classOpen = classMax > spotsFilled;
 var noConflict = confirm('Can you do a 9am class?');
 
 if (classOpen && noConflict === true) {
-        alert('You can attend!');
-    } else {
-        alert("Sorry, you can't attend");
-    }
+    alert('You can attend!');
+} else {
+    alert("Sorry, you can't attend");
+}
 
 // part 3.4
 var offerNotExpired = true;
 var question = confirm('Are you a member or have you bought 2 items?');
 
 if (question === true) {
-        alert('You qualify for offer!');
-    }  else {
-        alert("Sorry, offer does not apply");
-    }
+    alert('You qualify for offer!');
+} else {
+    alert("Sorry, offer does not apply");
+}

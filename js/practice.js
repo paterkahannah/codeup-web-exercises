@@ -95,6 +95,7 @@ function isVowel(x) {
     x = x.toLowerCase();
     return (/^[aeiou]$/i).test(x);
 }
+
 console.log(isVowel('A'));
 
 function isConsonant(x) {
@@ -218,54 +219,63 @@ function cubeRoot(x) {
 }
 
 console.log(cubeRoot(64));
+
 // Write a function named invertSign(number) that returns a negative version of a postive number, a positve version of negative, and false for all else.
 function invertSign(x) {
     typeof x === 'number' ? x * -1 : false;
 }
 
 console.log(invertSign(-1));
+
 // Write a function named degreesToRadians(number)
 function degreesToRadians(x) {
-    return (x/180) * Math.PI;
+    return (x / 180) * Math.PI;
 }
 
 console.log(degreesToRadians(1));
+
 // Write a function named radiansToDegrees(number)
 function radiansToDegrees(x) {
-    return (x/Math.PI) * 180;
+    return (x / Math.PI) * 180;
 }
 
 console.log(radiansToDegrees(1));
+
 // Make a function named isBlank(input) that determines if a given input is spaces, newline characters, or tabs.
 function isBlank(x) {
     return x === '';
 }
 
 console.log(isBlank(''));
+
 //     Make a function named trim(string) that removes empty spaces before and after the input.
 function trim(x) {
     return x.trim();
 }
 
 console.log(trim(' leaves'));
+
 //     Make a function named areEqual(input1, input2) that returns if both inputs have the same value
 function areEqual(x, y) {
     return x == y;
 }
 
 console.log(areEqual(1, '1'));
+
 // Make a function named areIdentical(input1, input2) that returns if both inputs are same value and data type.
 function notInput(a, b) {
     return a === b;
 }
 
 console.log(areEqual(1, 1));
+
 //     Make a function named not(input) returns the input with a flipped boolean
 function not(x) {
     return !x;
 }
 
 console.log(not(0));
+
 // Make a function named notNot(input) that the negation of the negation of the input.
 function notNot(x) {
     return !!x;
@@ -329,7 +339,7 @@ console.log(addThree(1));
 // console.log(identity(input));
 //
 //     Write a function called getRandomNumber(min, max) that returns a random number between min and max values sent to that function call.
-function getRandomNumber(min, max){
+function getRandomNumber(min, max) {
     return Math.floor(Math.random() * max) + min;
 }
 
@@ -344,13 +354,14 @@ console.log(first('Hannah'));
 
 //     Write a function called last(input) that returns the last character of a string
 function last(x) {
-    return x.charAt(x.length-1);
+    return x.charAt(x.length - 1);
 }
 
 console.log(last('Hannah'));
+
 // Write a function called rest(input) that returns everything but the first character of a string.
 function rest(x) {
-    return x.substring(1, x.length-0);
+    return x.substring(1, x.length - 0);
 }
 
 console.log(rest('Hannah'));
@@ -370,30 +381,35 @@ function add(a, b) {
 }
 
 console.log(add(1, 1));
+
 // Write a function called subtract(a, b) that return the difference between the two inputs.
 function suntract(a, b) {
     return a - b;
 }
 
 console.log(suntract(2, 1));
+
 //     Write multiply(a, b) function that returns the product
-function multiply (a, b) {
+function multiply(a, b) {
     return a * b;
 }
 
 console.log(multiply(1, 1));
+
 // Write a divide(numerator, denominator) function that returns a divided by b
 function divide(a, b) {
     return a / b;
 }
 
 console.log(divide(2, 1));
+
 // Write a remainder(number, divisor) function that returns the remainder left over when dividing number by the divisor
 function remainder(number, dividor) {
     return number % dividor;
 }
 
 console.log(remainder(4, 3));
+
 // Write the function square(a) that takes in a number and returns the number multiplied by itself.
 function square(x) {
     return x * x;
@@ -412,9 +428,10 @@ function doMath(operator, a, b) {
 }
 
 console.log(doMath(add, 1, 2));
+
 // Create a function that will return how many whitespace characters are at the beginning and end of a string.
 function numberWhiteSpace(x) {
-    return(x.match(/^(\s*)/).length);
+    return (x.match(/^(\s*)/).length);
 }
 
 console.log(numberWhiteSpace('  Hannah  '));
@@ -439,15 +456,9 @@ console.log(numberWhiteSpace('  Hannah  '));
 //     If the second string input is present multiple times in the first, the second string will only be removed where it first occurs in the first string.
 
 
-
-
-
-
-
-
 // Create a function that takes in a string and returns true if the last letter is an "a" (otherwise, return false).
 function lastLetterA(x) {
-    return x.charAt(x.length-1) === 'a';
+    return x.charAt(x.length - 1) === 'a';
 }
 
 console.log(lastLetterA('hanna'));
@@ -458,6 +469,7 @@ function spacesAtBeginning(x) {
 }
 
 console.log(spacesAtBeginning(' hanna '))
+
 // Create a function returnTrueMessage() that returns the string "Hey, it's true!"
 function returnTrueMessage(x) {
     if (x === true) {
@@ -466,6 +478,7 @@ function returnTrueMessage(x) {
 }
 
 console.log(returnTrueMessage(true));
+
 // Create a function returnFalseMessage() that returns the string "Hey, it's false!"
 function returnFalseMessage(x) {
     if (x === false) {

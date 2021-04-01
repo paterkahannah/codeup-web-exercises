@@ -20,7 +20,7 @@ console.log('-------------------')
 var num = '';
 
 for (var i = 1; i <= 9; i++) {
-    for (var j = 1 ; j <= i; j++) {
+    for (var j = 1; j <= i; j++) {
         num += i + '';
     }
     console.log(num);

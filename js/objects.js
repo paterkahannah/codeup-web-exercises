@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     /**
@@ -12,16 +12,16 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
-    var person = {
-        firstName: 'Hannah',
-        lastName: 'Paterka',
-        sayHello: function () {
-            console.log("Hello " + this.firstName + ' ' + this.lastName);
-        }
-    };
-
-    console.log(person.firstName);
-    console.log(person.lastName);
+    // var person = {
+    //     firstName: 'Hannah',
+    //     lastName: 'Paterka',
+    //     sayHello: function () {
+    //         console.log("Hello " + this.firstName + ' ' + this.lastName);
+    //     }
+    // };
+    //
+    // console.log(person.firstName);
+    // console.log(person.lastName);
 
     /**
      * TODO:
@@ -33,7 +33,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    person.sayHello();
+    // person.sayHello();
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -49,19 +49,19 @@
      * and console.log the relevant messages for each person
      */
 
-    var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320},
-    ];
-
-    shoppers.forEach(function(shopper) {
-        if (shopper.amount > 200) {
-            console.log("Hello " + shopper.name + ". You have spent over $" + shopper.amount + ". You qualify for a 12% discount. You're new total is    $" + (shopper.amount - shopper.amount * .12));
-        } else {
-            console.log("Sorry, " + shopper.name + ". You don't qualify.");
-        }
-    });
+    // var shoppers = [
+    //     {name: 'Cameron', amount: 180},
+    //     {name: 'Ryan', amount: 250},
+    //     {name: 'George', amount: 320},
+    // ];
+    //
+    // shoppers.forEach(function (shopper) {
+    //     if (shopper.amount > 200) {
+    //         console.log("Hello " + shopper.name + ". You have spent over $200.00, You qualify for a 12% discount. You're discounted total is $" + (shopper.amount - shopper.amount * .12).toFixed(2));
+    //     } else {
+    //         console.log("Sorry, " + shopper.name + ". You don't qualify for the discount. You're total is $" + shopper.amount.toFixed(2));
+    //     }
+    // });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -77,23 +77,46 @@
      */
 
     var books = [
-        {title: 'Desert Solitare' , author: {
-            firstName: 'Edward',
+        {
+            title: 'Desert Solitare',
+            author: {
+                firstName: 'Edward',
                 lastName: 'Abbey',
-            } },
-        {title: 'The Argonauts', author: {
-            firstName: 'Maggie',
+            }
+        },
+        {
+            title: 'The Argonauts',
+            author: {
+                firstName: 'Maggie',
                 lastName: 'Nelson',
-            } },
-        {title: 'Till we have faces' , author: {
-            firstName: 'C.S.',
+            }
+        },
+        {
+            title: 'Till we have faces',
+            author: {
+                firstName: 'C.S.',
                 lastName: 'Lewis',
-            }},
+            }
+        },
+        {
+            title: 'Gifts from the sea',
+            author: {
+                firstName: 'Anne',
+                lastName: 'Lindbergh',
+            }
+        },
+        {
+            title: 'My Journal',
+            author: {
+                firstName: 'Me',
+                lastName: '& Me',
+            }
+        },
     ];
 
-    console.log(books[0].title);
-    console.log(books[0].author.firstName);
-    console.log(books[0].author.lastName);
+    // console.log(books[0].title);
+    // console.log(books[0].author.firstName);
+    // console.log(books[0].author.lastName);
 
     /**
      * TODO:
@@ -120,10 +143,15 @@
      *      ...
      */
 
-    books.forEach(function(book) {
+    // for (var i = 0; i < books.length; i++) {
+    //     console.log('Book # ' + i + "\n" + 'Title: ' + books[i].title + "\n" + "Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    // }
 
+    for (var i = 0; i < books.length; i++) {
+        console.log('Book # ' + i + "\n" + 'Title: ' + books[i].title + "\n" + "Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    }
 
-        /**
+    /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
      *   name and returns a book object with the properties described
@@ -134,4 +162,25 @@
      *   `showBookInfo` function.
      */
 
+    function createBook(title, author) {
+        return title + ' by ' + author;
+
+    }
+
+    console.log(createBook('Desert Solitare', 'Edward Abbey'))
+    var book = new createBook("Desert Solitare", "Edward Abbey");
+    // new createBook("Desert Solitare", "Edward Abbey");
+    // console.log(title);
+    // console.log(author);
+    //
+    // function showBookInfo(object) {
+    //
+    //     for (var i = 0; i < books.length; i++) {
+    //         console.log('Book # ' + i + "\n" + 'Title: ' + books[i].title + "\n" + "Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    //     }
+    // }
+    //
+    // console.log(showBookInfo(books[1]));
+
 })();
+

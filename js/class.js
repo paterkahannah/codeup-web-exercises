@@ -2,14 +2,14 @@
 
 // psuedo code, use it
 
-var tacoma  = {
+var tacoma = {
     make: 'Toyota',
     model: 'tacoma',
     truck: true,
     seat: 5,
     color: 'blue',
     mileage: 10,
-    drive: function (){
+    drive: function () {
         console.log('vroom');
         this.mileage++;
     }

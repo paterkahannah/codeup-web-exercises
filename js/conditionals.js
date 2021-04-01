@@ -70,11 +70,11 @@ function analyzeColor(color) {
 console.log(analyzeColor(randomColor));
 
 /**
-//  * TODO:
-//  * Prompt the user for a color when the page loads, and pass the input from the
-//  * user to your `analyzeColor` function. Alert the return value from your
-//  * function to show it to the user.
-//  */
+ //  * TODO:
+ //  * Prompt the user for a color when the page loads, and pass the input from the
+ //  * user to your `analyzeColor` function. Alert the return value from your
+ //  * function to show it to the user.
+ //  */
 
 var userFavColor = prompt("What's your favorite color?").toLowerCase();
 
@@ -114,7 +114,7 @@ function calculateTotal(luckyNum, total) {
     } else if (luckyNum === 5) {
         return 'your new total is $' + (total - (total * .100)).toFixed(2);
     } else {
-    return 'it is free';
+        return 'it is free';
     }
 }
 
@@ -157,7 +157,7 @@ alert("You're lucky (or unlucky number) was " + luckyNumber + ". You're original
 
 var ask = confirm('Would you like to enter a number?');
 
-var response = ask ? parseFloat(prompt('Please enter a number!')) : false ;
+var response = ask ? parseFloat(prompt('Please enter a number!')) : false;
 
 // if (!isNaN(response)) {
 //     response % 2 === 0 ? alert('This is an even number') : alert('This is an odd number');
@@ -169,26 +169,26 @@ var response = ask ? parseFloat(prompt('Please enter a number!')) : false ;
 // }
 
 
-    function oddOrEven(response) {
-        return response % 2 === 0 ? 'This is an even number' : 'This is an odd number';
-    }
+function oddOrEven(response) {
+    return response % 2 === 0 ? 'This is an even number' : 'This is an odd number';
+}
 
-    function plus100(response) {
-        return 'This number + 100 equals to ' + (parseFloat(response) + 100);
-    }
+function plus100(response) {
+    return 'This number + 100 equals to ' + (parseFloat(response) + 100);
+}
 
-    function positiveOrNegative(response) {
-        if (response > 0) {
-            return 'This number is positive.';
-        } else {
-            return 'This number is negative.';
-        }
-    }
-
-    if (!isNaN(response)) {
-        alert(oddOrEven(response));
-        alert(plus100(response));
-        alert(positiveOrNegative(response));
+function positiveOrNegative(response) {
+    if (response > 0) {
+        return 'This number is positive.';
     } else {
-        alert('That is not a number')
+        return 'This number is negative.';
     }
+}
+
+if (!isNaN(response)) {
+    alert(oddOrEven(response));
+    alert(plus100(response));
+    alert(positiveOrNegative(response));
+} else {
+    alert('That is not a number')
+}

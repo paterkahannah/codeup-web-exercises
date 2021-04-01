@@ -1,4 +1,4 @@
-(function(){
+(function () {
     "use strict";
 
     /**
@@ -34,9 +34,10 @@
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-    names.forEach(function(name) {
+    names.forEach(function (name) {
         console.log(name);
     })
+
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -60,7 +61,7 @@
     }
 
     function last(arr) {
-        return arr[arr.length-1];
+        return arr[arr.length - 1];
     }
 
     var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
