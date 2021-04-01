@@ -39,5 +39,4 @@
 
     console.log(planetsString2);
 
-
 })();
