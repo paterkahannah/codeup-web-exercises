@@ -38,5 +38,4 @@
     var planetsString2 = '<ul>' + "\n" + planetsArray.join("") + '\n' + '</ul>';
 
     console.log(planetsString2);
-
 })();
