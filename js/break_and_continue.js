@@ -8,7 +8,7 @@ function check(num) {
     return num >= 1 && num <= 50 && num % 2 !== 0;
 }
 
-// this loop repeats the above prompt if the customer enters a number which doesn't meet the requirements
+// this loop repeats the above prompt until the customer enters a number which satisifies the requirements
 while (true) {
     if (check(userNum)) {
         break;
