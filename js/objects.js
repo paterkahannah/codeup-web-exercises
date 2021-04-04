@@ -76,47 +76,56 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
-    var books = [
-        {
-            title: 'Desert Solitare',
-            author: {
-                firstName: 'Edward',
-                lastName: 'Abbey',
-            }
-        },
-        {
-            title: 'The Argonauts',
-            author: {
-                firstName: 'Maggie',
-                lastName: 'Nelson',
-            }
-        },
-        {
-            title: 'Till we have faces',
-            author: {
-                firstName: 'C.S.',
-                lastName: 'Lewis',
-            }
-        },
-        {
-            title: 'Gifts from the sea',
-            author: {
-                firstName: 'Anne',
-                lastName: 'Lindbergh',
-            }
-        },
-        {
-            title: 'My Journal',
-            author: {
-                firstName: 'Me',
-                lastName: '& Me',
-            }
-        }
-    ];
-
+    // var books = [
+    //     {title: 'Desert Solitaire',
+    //         author: {
+    //             firstName: 'Edward',
+    //             lastName: 'Abbey',
+    //         }
+    //     },
+    //     {
+    //         title: 'The Argonauts',
+    //         author: {
+    //             firstName: 'Maggie',
+    //             lastName: 'Nelson',
+    //         }
+    //     },
+    //     {
+    //         title: 'Till we have faces',
+    //         author: {
+    //             firstName: 'C.S.',
+    //             lastName: 'Lewis',
+    //         }
+    //     },
+    //     {
+    //         title: 'Gifts from the sea',
+    //         author: {
+    //             firstName: 'Anne',
+    //             lastName: 'Lindbergh',
+    //         }
+    //     },
+    //     {
+    //         title: 'My Journal',
+    //         author: {
+    //             firstName: 'Me',
+    //             lastName: '& Me',
+    //         }
+    //     }
+    // ];
+    //
     // console.log(books[0].title);
     // console.log(books[0].author.firstName);
     // console.log(books[0].author.lastName);
+
+    var books2 = [
+            new CreateBook('Desert Solitaire', 'Edward Abbey'),
+            new CreateBook('The Argonauts', 'Maggie Nelson'),
+            new CreateBook('Till we have faces', 'C.S. Lewis'),
+            new CreateBook('Gifts from the Sea', 'Anne Lindbergh'),
+            new CreateBook('My Journal', 'Me &Me'),
+        ]
+
+    console.log(books2);
 
     /**
      * TODO:
@@ -143,7 +152,7 @@
      *      ...
      */
 
-    // my original code, but the following code block is more appropiate
+    // my original code, but the following code block is more appropriate
     // for (var i = 0; i < books.length; i++) {
     //     console.log('Book # ' + (i + 1) + "\n" + 'Title: ' + books[i].title + "\n" + "Author: " + books[i].author.firstName + " " + books[i].author.lastName);
     // }
@@ -160,10 +169,30 @@
      use your function.
      */
 
+    function CreateBook(title, author) {
+        {
+            this.title = title;
+            this.author = author;
+        }
+    }
+    var newBook = new CreateBook('Desert Solitaire', 'Edward Abbey');
+
+    // console.log(newBook);
+
     /** - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      //  */
 
-})();
+    function showBookInfo(books2) {
+        return books2;
+    }
 
+    console.log(showBookInfo(books2[0].title + ' \n by \n' + books2[0].author));
+    console.log(showBookInfo(books2[1].title + ' \n by \n' + books2[1].author));
+
+    books2.forEach(function (book) {
+        console.log(showBookInfo(book.title + ' \n by \n' + book.author));
+    });
+
+})();
