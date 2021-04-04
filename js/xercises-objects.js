@@ -200,7 +200,7 @@ salesReport.employees.forEach(function (employee) {
 //     sterilized (boolean),
 //     shotRecords (array of objects with properties for date and typeOfShot)
 // The dog object should have methods to:
-//
+////
 //     bark() - will console.log "Woof!"
 // getOlder() - will increase age by 1
 // fix() - will set sterile to true if dog sterilized property is false

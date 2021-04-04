@@ -123,13 +123,6 @@ function applyDiscount(price, discount) {
 console.log(applyDiscount(price, discount));
 
 
-/////////////////////// OBJECTS
-
-function makeCar(make, model) {
-    
-}
-
-
 
 
 
