@@ -1,6 +1,6 @@
 "use strict";
 
-// FUNCTIONS PRACTICE
+// FUNCTIONS
 
 function isOdd(x) {
     return x % 2 !== 0;
