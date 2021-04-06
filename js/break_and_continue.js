@@ -1,7 +1,7 @@
 "use strict";
 
 // prompts user for a number between 1-50
-var userNum = prompt('enter an odd number between 1-50');
+var userNum = prompt('Please enter an odd number between 1-50.');
 
 // function verifies number is between 1-50 and positive
 function check(num) {
@@ -13,7 +13,7 @@ while (true) {
     if (check(userNum)) {
         break;
     }
-    userNum = parseInt(prompt("Give me an odd number between 1 and 50 please?"));
+    userNum = prompt("I'm sorry, please enter an odd number between 1 and 50.");
 }
 
 // this loop outputs all odd numbers between 1-50, skipping the even numbers, and outputting a special line for the number the customer entered
