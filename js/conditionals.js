@@ -168,7 +168,7 @@ var response = ask ? parseFloat(prompt('Please enter a number!')) : false;
 //     alert('this is not a number')
 // }
 
-
+// below is alternative code to the commented block above, does the same thing, but written differently
 function oddOrEven(response) {
     return response % 2 === 0 ? 'This is an even number' : 'This is an odd number';
 }
