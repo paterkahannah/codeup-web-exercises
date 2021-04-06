@@ -94,8 +94,12 @@ console.log(('The total tip is $' + total.toFixed(2)));
  //  * then display the dollar amount they should tip
  //  */
 
-var giveTotal = prompt('What was the total of your bill?');
-var tip = prompt('What percentage would you like to tip?');
+while (isNaN(giveTotal)) {
+    var giveTotal = prompt('What was the total of your bill?');
+}
+while (isNaN(tip)) {
+    var tip = prompt('What percentage would you like to tip?');
+}
 alert('The tip total is $' + (calculateTip(giveTotal, tip * 0.01)))
 
 /**
