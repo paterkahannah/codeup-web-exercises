@@ -105,8 +105,17 @@ var salesReport = {
             lastName: 'Boop',
             salesUnit: 67
         }
-    ]
-};
+    ],
+    // i cant make this work
+    count: function getEmployeeCount() {
+        console.log(this.employees.length);
+    }
+}
+
+// getTotalNumberOfSales()
+// getAverageSalesPerEmployee()
+
+
 
 console.log('',
     salesReport.title, '\n',
