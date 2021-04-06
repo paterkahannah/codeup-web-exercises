@@ -1,14 +1,14 @@
 "use strict";
 
-// this prompts user for a number between 1-50
+// prompts user for a number between 1-50
 var userNum = prompt('enter an odd number between 1-50');
 
-// this function verifies the number is between 1-50 and positive
+// function verifies number is between 1-50 and positive
 function check(num) {
     return num >= 1 && num <= 50 && num % 2 !== 0;
 }
 
-// this loop repeats the above prompt until the customer enters a number which satisifies the requirements
+// this loop repeats the prompt until user enters a number that satisifies the requirements
 while (true) {
     if (check(userNum)) {
         break;
