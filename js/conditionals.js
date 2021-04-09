@@ -102,20 +102,30 @@ alert(analyzeColor(userFavColor));
  * return value.
  */
 
+// function calculateTotal(luckyNum, total) {
+//     if (luckyNum === 1) {
+//         return 'your new total is $' + (total - (total * .1)).toFixed(2);
+//     } else if (luckyNum === 2) {
+//         return 'your new total is $' + (total - (total * .25)).toFixed(2);
+//     } else if (luckyNum === 3) {
+//         return 'your new total is $' + (total - (total * .35)).toFixed(2);
+//     } else if (luckyNum === 4) {
+//         return 'your new total is $' + (total - (total * .50)).toFixed(2);
+//     } else if (luckyNum === 5) {
+//         return 'your new total is $' + (total - (total * .100)).toFixed(2);
+//     } else {
+//         return 'it is free';
+//     }
+// }
+
+// this is a shorter version of hte baove block
 function calculateTotal(luckyNum, total) {
-    if (luckyNum === 1) {
-        return 'your new total is $' + (total - (total * .1)).toFixed(2);
-    } else if (luckyNum === 2) {
-        return 'your new total is $' + (total - (total * .25)).toFixed(2);
-    } else if (luckyNum === 3) {
-        return 'your new total is $' + (total - (total * .35)).toFixed(2);
-    } else if (luckyNum === 4) {
-        return 'your new total is $' + (total - (total * .50)).toFixed(2);
-    } else if (luckyNum === 5) {
-        return 'your new total is $' + (total - (total * .100)).toFixed(2);
-    } else {
-        return 'it is free';
-    }
+    if (luckyNum === 1) return 'your new total is $' + (total - (total * .1)).toFixed(2);
+    if (luckyNum === 2) return 'your new total is $' + (total - (total * .25)).toFixed(2);
+    if (luckyNum === 3) return 'your new total is $' + (total - (total * .35)).toFixed(2);
+    if (luckyNum === 4) return 'your new total is $' + (total - (total * .50)).toFixed(2);
+    if (luckyNum === 5) return 'your new total is $' + (total - (total * .100)).toFixed(2);
+    return 'it is free';
 }
 
 console.log(calculateTotal(1, 12));

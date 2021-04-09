@@ -1,15 +1,13 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');*/
-h1, h2 {
-    color: blue;
-    text-decoration: underline;
-}
+
 h1, .center, #table1, #table3 {
     text-align: center;
 }
 body {
     /*background-image: url("../img/yellow.jpeg");*/
     /*background-size: cover;*/
-    font-family: 'Playfair Display', serif;
+    font-family: 'Raleway', sans-serif;    color: floralwhite;
+    background-color: black;
 }
 table {
     padding: 20px;
@@ -37,4 +35,37 @@ table {
 #table, #table1 {
     margin-left:auto;
     margin-right:auto;
+    text-align: center;
 }
+
+h2 {
+    /*font-weight: bold;*/
+}
+
+ul, ol {
+    list-style: circle;
+}
+/*.float1 {*/
+/*    float: left;*/
+/*    margin: 25px;*/
+/*}*/
+/*.float2 {*/
+/*    float: snap;*/
+/*    margin: 50px;*/
+/*}*/
+/*.float3 {*/
+/*    float: left;*/
+/*    margin: 25px;*/
+/*}*/
+/*#div1 {*/
+/*    float: left;*/
+/*}*/
+/*#div2 {*/
+/*    float: left;*/
+/*}*/
+/*#div3 {*/
+/*    float: left;*/
+/*!*}*!*/
+/*#div5 {*/
+/*    float: left;*/
+/*}*/
