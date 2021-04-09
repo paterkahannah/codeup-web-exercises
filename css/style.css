@@ -1,29 +1,23 @@
-h1 {
-    text-align: center;
-}
-
+/*@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');*/
 h1, h2 {
     color: blue;
     text-decoration: underline;
 }
-
+h1, .center, #table1, #table3 {
+    text-align: center;
+}
 body {
     /*background-image: url("../img/yellow.jpeg");*/
-    background-size: cover;
-    font-family: "Times New Roman", "Times";
+    /*background-size: cover;*/
+    font-family: 'Playfair Display', serif;
 }
-
-ol, ul{
-    list-style-type: square;
-}
-
 table {
     padding: 20px;
     font-size: 20px;
 }
 /*Add a style to change the table, table cells td and rows tr padding and font sizes. cant get tr padding to work*/
 td {
-    padding: 10px;
+    padding: 15px;
 }
 a:link {
     color: blue;
@@ -39,4 +33,8 @@ a:active {
 }
 table {
     border: 1px solid black;
+}
+#table, #table1 {
+    margin-left:auto;
+    margin-right:auto;
 }
