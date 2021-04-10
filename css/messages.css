@@ -1,3 +1,14 @@
+:root {
+    --bg-info: #bfd6fb;
+    --text-info: #3c3a8f;
+    --bg-success: #c9f1d6;
+    --text-success: #135e30;
+    --bg-warning: #fcf9c5;
+    --text-warning: #978435;
+    --bg-error: #f9cdd2;
+    --text-error: #7c1c32;
+}
+
 body, html {
     height: 100%;
     width: 100%;
@@ -12,22 +23,39 @@ body, html {
     border-style: solid;
     border-width: 1px;
     border-color: lightgray;
-    margin: 5px;
+    margin: 10px;
     border-radius: 5px;
 }
 
 .message-info {
-    background-color: #bfd6fb;
-    color: #3c3a8f;
+    background-color: var(--bg-info);
+    color: var(--text-info);
 }
 .message-success {
-    background-color: #c9f1d6;
-    color: #135e30;}
+    background-color: var(--bg-success);
+    color: var(--text-success);}
 
 .message-warning {
-    background-color: #fcf9c5;
-    color: #716519;}
+    background-color: var(--bg-warning);
+    color: var(--text-success);}
 
 .message-error {
-    background-color: #f9cdd2;
-    color: #7c1c32;}
+    background-color: var(--bg-error);
+    color: var(--text-error);}
+
+/* Below is the first way I did the individual box styling, above is the BONUS way -using variables. */
+/*.message-info {*/
+/*    background-color: #bfd6fb;*/
+/*    color: #3c3a8f;*/
+/*}*/
+/*.message-success {*/
+/*    background-color: #c9f1d6;*/
+/*    color: #135e30;}*/
+
+/*.message-warning {*/
+/*    background-color: #fcf9c5;*/
+/*    color: #978435;}*/
+
+/*.message-error {*/
+/*    background-color: #f9cdd2;*/
+/*    color: #7c1c32;}*/
