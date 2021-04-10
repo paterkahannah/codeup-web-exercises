@@ -31,31 +31,39 @@ body, html {
     background-color: var(--bg-info);
     color: var(--text-info);
 }
+
 .message-success {
     background-color: var(--bg-success);
-    color: var(--text-success);}
+    color: var(--text-success);
+}
 
 .message-warning {
     background-color: var(--bg-warning);
-    color: var(--text-success);}
+    color: var(--text-success);
+}
 
 .message-error {
     background-color: var(--bg-error);
-    color: var(--text-error);}
+    color: var(--text-error);
+}
 
-/* Below is the first way I did the individual box styling, above is the BONUS way -using variables. */
-/*.message-info {*/
-/*    background-color: #bfd6fb;*/
-/*    color: #3c3a8f;*/
-/*}*/
-/*.message-success {*/
-/*    background-color: #c9f1d6;*/
-/*    color: #135e30;}*/
+ /*Below is the first way I did the individual box styling, above is the BONUS way -using variables. */
+.message-info {
+    background-color: #bfd6fb;
+    color: #3c3a8f;
+}
 
-/*.message-warning {*/
-/*    background-color: #fcf9c5;*/
-/*    color: #978435;}*/
+.message-success {
+    background-color: #c9f1d6;
+    color: #135e30;
+}
 
-/*.message-error {*/
-/*    background-color: #f9cdd2;*/
-/*    color: #7c1c32;}*/
+.message-warning {
+    background-color: #fcf9c5;
+    color: #978435;
+}
+
+.message-error {
+    background-color: #f9cdd2;
+    color: #7c1c32;
+}
