@@ -12,16 +12,16 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
-    // var person = {
-    //     firstName: 'Hannah',
-    //     lastName: 'Paterka',
-    //     sayHello: function () {
-    //         console.log("Hello " + this.firstName + ' ' + this.lastName);
-    //     }
-    // };
-    //
-    // console.log(person.firstName);
-    // console.log(person.lastName);
+    var person = {
+        firstName: 'Hannah',
+        lastName: 'Paterka',
+        sayHello: function () {
+            console.log("Hello " + this.firstName + ' ' + this.lastName);
+        }
+    };
+
+    console.log(person.firstName);
+    console.log(person.lastName);
 
     /**
      * TODO:
@@ -33,7 +33,7 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    // person.sayHello();
+    person.sayHello();
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -49,19 +49,19 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320},
-    // ];
-    //
-    // shoppers.forEach(function (shopper) {
-    //     if (shopper.amount > 200) {
-    //         console.log("Hello " + shopper.name + ". You have spent over $200.00, You qualify for a 12% discount. You're discounted total is $" + (shopper.amount - shopper.amount * .12).toFixed(2));
-    //     } else {
-    //         console.log("Sorry, " + shopper.name + ". You don't qualify for the discount. You're total is $" + shopper.amount.toFixed(2));
-    //     }
-    // });
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320},
+    ];
+
+    shoppers.forEach(function (shopper) {
+        if (shopper.amount > 200) {
+            console.log("Hello " + shopper.name + ". You have spent over $200.00, You qualify for a 12% discount. You're discounted total is $" + (shopper.amount - shopper.amount * .12).toFixed(2));
+        } else {
+            console.log("Sorry, " + shopper.name + ". You don't qualify for the discount. You're total is $" + shopper.amount.toFixed(2));
+        }
+    });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -76,56 +76,46 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
-    // var books = [
-    //     {title: 'Desert Solitaire',
-    //         author: {
-    //             firstName: 'Edward',
-    //             lastName: 'Abbey',
-    //         }
-    //     },
-    //     {
-    //         title: 'The Argonauts',
-    //         author: {
-    //             firstName: 'Maggie',
-    //             lastName: 'Nelson',
-    //         }
-    //     },
-    //     {
-    //         title: 'Till we have faces',
-    //         author: {
-    //             firstName: 'C.S.',
-    //             lastName: 'Lewis',
-    //         }
-    //     },
-    //     {
-    //         title: 'Gifts from the sea',
-    //         author: {
-    //             firstName: 'Anne',
-    //             lastName: 'Lindbergh',
-    //         }
-    //     },
-    //     {
-    //         title: 'My Journal',
-    //         author: {
-    //             firstName: 'Me',
-    //             lastName: '& Me',
-    //         }
-    //     }
-    // ];
-    //
-    // console.log(books[0].title);
-    // console.log(books[0].author.firstName);
-    // console.log(books[0].author.lastName);
+    var books = [
+        {title: 'Desert Solitaire',
+            author: {
+                firstName: 'Edward',
+                lastName: 'Abbey',
+            }
+        },
+        {
+            title: 'The Argonauts',
+            author: {
+                firstName: 'Maggie',
+                lastName: 'Nelson',
+            }
+        },
+        {
+            title: 'Till we have faces',
+            author: {
+                firstName: 'C.S.',
+                lastName: 'Lewis',
+            }
+        },
+        {
+            title: 'Gifts from the sea',
+            author: {
+                firstName: 'Anne',
+                lastName: 'Lindbergh',
+            }
+        },
+        {
+            title: 'My Journal',
+            author: {
+                firstName: 'Me',
+                lastName: '& Me',
+            }
+        }
+    ];
 
-    var books2 = [
-            new CreateBook('Desert Solitaire', 'Edward Abbey'),
-            new CreateBook('The Argonauts', 'Maggie Nelson'),
-            new CreateBook('Till we have faces', 'C.S. Lewis'),
-            new CreateBook('Gifts from the Sea', 'Anne Lindbergh'),
-            new CreateBook('My Journal', 'Me &Me'),
-        ]
-
-    console.log(books2);
+    console.log(books[0].title);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
 
     /**
      * TODO:
@@ -152,14 +142,14 @@
      *      ...
      */
 
-    // my original code, but the following code block is more appropriate
+    // this block below original code, but the following code block is more appropriate, using a foreach function.
     // for (var i = 0; i < books.length; i++) {
     //     console.log('Book # ' + (i + 1) + "\n" + 'Title: ' + books[i].title + "\n" + "Author: " + books[i].author.firstName + " " + books[i].author.lastName);
     // }
 
-    // books.forEach(function (book) {
-    //     console.log('Book # ' + (books.indexOf(book) + 1) + "\n" + 'Title: ' + book.title + "\n" + "Author: " + book.author.firstName + " " + book.author.lastName);
-    // });
+    books.forEach(function (book) {
+        console.log('Book # ' + (books.indexOf(book) + 1) + "\n" + 'Title: ' + book.title + "\n" + "Author: " + book.author.firstName + " " + book.author.lastName);
+    });
 
     /**
      * Bonus:
@@ -177,7 +167,17 @@
     }
     var newBook = new CreateBook('Desert Solitaire', 'Edward Abbey');
 
-    // console.log(newBook);
+    console.log(newBook);
+
+    var books2 = [
+            new CreateBook('Desert Solitaire', 'Edward Abbey'),
+            new CreateBook('The Argonauts', 'Maggie Nelson'),
+            new CreateBook('Till we have faces', 'C.S. Lewis'),
+            new CreateBook('Gifts from the Sea', 'Anne Lindbergh'),
+            new CreateBook('My Journal', 'Me &Me'),
+        ]
+
+    console.log(books2);
 
     /** - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
