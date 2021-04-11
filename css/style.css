@@ -1,76 +1,53 @@
 * {
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    color: #c06a3c;
+    /*color: gray;*/
+}
+
+body {
+    /*background-image: url("../img/3.jpeg");*/
+    background-size: cover;
+    /*background-position: center;*/
+    font-family: 'Raleway', sans-serif;
+    color: floralwhite;
+    background-color: black;
 }
 
 /*@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');*/
 
-h1, .center, #table1, #table3 {
-    text-align: center;
-}
-body {
-    /*background-image: url("../img/yellow.jpeg");*/
-    /*background-size: cover;*/
-    font-family: 'Raleway', sans-serif;    color: floralwhite;
-    background-color: black;
-}
 table {
     padding: 20px;
     font-size: 20px;
-}
-/*Add a style to change the table, table cells td and rows tr padding and font sizes. cant get tr padding to work*/
-td {
-    padding: 15px;
-}
-a:link {
-    color: blue;
-}
-a:visited {
-    color: black;
-}
-a:hover {
-    color: red;
-}
-a:active {
-    color: #ff9800;
-}
-table {
-    border: 1px solid black;
-}
-#table, #table1 {
-    margin-left:auto;
-    margin-right:auto;
-    text-align: center;
-}
-
-h2 {
-    /*font-weight: bold;*/
+    background-color: #c06a3c;
 }
 
 ul, ol {
-    list-style: circle;
+    list-style: none;
 }
-/*.float1 {*/
-/*    float: left;*/
-/*    margin: 25px;*/
-/*}*/
-/*.float2 {*/
-/*    float: snap;*/
-/*    margin: 50px;*/
-/*}*/
-/*.float3 {*/
-/*    float: left;*/
-/*    margin: 25px;*/
-/*}*/
-/*#div1 {*/
-/*    float: left;*/
-/*}*/
-/*#div2 {*/
-/*    float: left;*/
-/*}*/
-/*#div3 {*/
-/*    float: left;*/
-/*!*}*!*/
-/*#div5 {*/
-/*    float: left;*/
-/*}*/
+
+hr {
+    border-color: #c06a3c;
+}
+
+td {
+    padding: 0 50px;
+    color: black;
+}
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: #ff9800;
+}
