@@ -125,16 +125,3 @@ function applyDiscount(price, discount) {
 }
 
 console.log(applyDiscount(price, discount));
-
-
-
-
-
-
-
-
-
-
-
-
-
