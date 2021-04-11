@@ -39,6 +39,7 @@ console.log(analyzeColor('green'));
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
+
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
@@ -118,7 +119,8 @@ alert(analyzeColor(userFavColor));
 //     }
 // }
 
-// this is a shorter version of hte baove block
+// this block is a shorter version of the above ^^^ code
+
 function calculateTotal(luckyNum, total) {
     if (luckyNum === 1) return 'your new total is $' + (total - (total * .1)).toFixed(2);
     if (luckyNum === 2) return 'your new total is $' + (total - (total * .25)).toFixed(2);
@@ -178,7 +180,8 @@ var response = ask ? parseFloat(prompt('Please enter a number!')) : false;
 //     alert('this is not a number')
 // }
 
-// below is alternative code to the commented block above, does the same thing, but written differently
+// this is alternative code to the commented ^^^ block above, it does the same thing, but written differently
+
 function oddOrEven(response) {
     return response % 2 === 0 ? 'This is an even number' : 'This is an odd number';
 }
