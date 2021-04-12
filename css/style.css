@@ -2,25 +2,23 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    color: #c06a3c;
-    /*color: gray;*/
 }
 
 body {
     /*background-image: url("../img/3.jpeg");*/
-    background-size: cover;
+    /*background-size: cover;*/
     /*background-position: center;*/
     font-family: 'Raleway', sans-serif;
-    color: floralwhite;
     background-color: black;
+    color: yellowgreen;
 }
 
 /*@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');*/
 
 table {
-    padding: 20px;
+    padding: 0 0 25px 0;
     font-size: 20px;
-    background-color: #c06a3c;
+    background-color: yellowgreen;
 }
 
 ul, ol {
@@ -28,7 +26,7 @@ ul, ol {
 }
 
 hr {
-    border-color: #c06a3c;
+    border-color: yellowgreen;
 }
 
 td {
@@ -45,9 +43,13 @@ a:visited {
 }
 
 a:hover {
-    color: red;
+    color: yellowgreen;
 }
 
 a:active {
-    color: #ff9800;
+    color: yellowgreen;
+}
+
+h2 {
+    color: lightgray;
 }
