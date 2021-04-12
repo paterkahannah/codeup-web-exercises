@@ -34,7 +34,7 @@ fieldset {
 
 .width-80 {
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
 
     /* The element with this class should 80% of the width and it must be centered */
     /* Read how to center elements with margin here: http://learnlayout.com/margin-auto.html*/
@@ -42,7 +42,7 @@ fieldset {
 
 .form-group {
     width: 100%;
-    margin: .5em 0 .5em 0;
+    margin: .5em 0;
 
     /* This element must use 100% of the width */
     /* It should have a separation of .5em from elements on top of it and below it*/
@@ -63,11 +63,10 @@ fieldset {
 }
 
 .btn {
-    padding: 8px;
+    padding: 8px 0;
     color: white;
     font-weight: bold;
-    border: 1px;
-    border-color: gray;
+    border: 1px gray solid;
     background-color: #0fb784;
 
     /* There must be a separation of 8px between the text and the border of this element */
@@ -76,14 +75,14 @@ fieldset {
 }
 
 .form-control {
-    padding: 4px;
-    margin: .5em 0 .5em 0;
-    width: calc(100% - 12px);
+    padding: 4px 0;
+    margin: .5em 0;
+    width: calc(100% - 4px);
 
     /* There must be 4px on top of the text and below the text of an input with this class */
     /* It should have a separation of .5em from elements on top of it and below it */
     /* You'll need to use the `calc` function to make the width of this element match the width of the button */
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
-    /* HINT: Calculate based on the padding of the `.btn` class */
+    /* HINT: Calculate based on the padding of the default browser (chrome) */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
 }
