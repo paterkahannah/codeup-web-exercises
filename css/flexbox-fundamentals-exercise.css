@@ -102,7 +102,6 @@ section:nth-of-type(3) h3 {
     background: brown;
     /* enter needed declarations here */
     flex-grow: 1;
-
 }
 
 .large-brown-box:nth-of-type(2) {
@@ -128,7 +127,7 @@ section:nth-of-type(6) {
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: .5em 0;
+    padding: .4em 0;
 }
 
 .grey-box {
