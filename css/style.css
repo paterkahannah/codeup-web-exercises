@@ -9,8 +9,7 @@ body {
     /*background-size: cover;*/
     /*background-position: center;*/
     font-family: 'Raleway', sans-serif;
-    background-color: black;
-    color: yellowgreen;
+    background-color: #ffc32d;
 }
 
 /*@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');*/
@@ -47,10 +46,6 @@ a:hover {
 
 a:active {
     color: yellowgreen;
-}
-
-h2 {
-    color: lightgray;
 }
 
 .box {
