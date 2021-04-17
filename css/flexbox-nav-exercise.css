@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
 
 * {
-    color: black;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    color: black;
 }
 
 ul {
@@ -20,9 +20,9 @@ li {
 }
 
 a {
-    font-family: 'Work Sans', sans-serif;
     text-decoration: none;
     display: inline-block;
+    font-family: 'Work Sans', sans-serif;
 }
 
 a:hover {
