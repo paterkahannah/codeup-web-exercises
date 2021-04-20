@@ -34,9 +34,9 @@ body {
     margin: 0;
 }
 
-/*.dark-green:nth-of-type(5) {*/
-/*    justify-content: start;*/
-/*}*/
+.dark-green:nth-of-type(5) {
+    align-self: start;
+}
 
 .h2 {
     margin: 0;
