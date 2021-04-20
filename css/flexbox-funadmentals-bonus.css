@@ -3,12 +3,12 @@
     margin: auto;
 }
 
-section {
+body {
     background-color: lightskyblue;
 }
 
 .whitespace {
-    height: 800px;
+    height: 1200px;
     width: 500px;
     background-color: white;
     display: flex;
@@ -19,15 +19,31 @@ section {
     display: flex;
     background-color: lightgreen;
     width: 450px;
-    height: 100px;
+    height: 75px;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .dark-green {
-    align-items: center;
     background-color: #135e30;
     border: 3px black solid;
     width: 50px;
     height: 20px;
+    margin: 0;
+}
+
+/*.dark-green:nth-of-type(5) {*/
+/*    justify-content: start;*/
+/*}*/
+
+.h2 {
+    margin: 0;
+}
+
+h2 {
+    margin-left: 1em;
 }
 
 .pink {
@@ -39,8 +55,17 @@ section {
 .pink>div {
     border: 3px black solid;
     background-color: deeppink;
-    width: 100%;
+    width: 5em;
     height: 20px;
+    margin: 0 auto;
+}
+
+.pink>div:nth-of-type(1) {
+    flex-grow: 2;
+}
+
+.pink>div:nth-of-type(2) {
+    flex-grow: 1;
 }
 
 .blue {
@@ -48,14 +73,17 @@ section {
     border: 3px black solid;
     width: 450px;
     height: 200px;
+    margin: 0 auto;
 }
 
 .smaller-heading {
     display: flex;
+    margin: 0 .5em 0 1em;
+    padding: 1em;
 }
 
-.heading {
-
+h3 {
+    flex-grow: 1;
 }
 
 .circles {
@@ -68,6 +96,8 @@ section {
 
 .brown {
     display: flex;
+    max-width: 100%;
+    margin: 1.3em;
 }
 
 .brown>div {
@@ -75,7 +105,7 @@ section {
     height: 100px;
     background-color: saddlebrown;
     border: 3px black solid;
-    margin: 1em;
+    margin: 0 1em;
 }
 
 .yellow {
@@ -87,20 +117,35 @@ section {
     background-color: yellow;
     width: 50px;
     height: 50px;
-    margin: 1em;
+    margin: 0 1em;
     justify-content: space-evenly;
 }
 
-/*.orange {*/
-/*    background-color: darkorange;*/
-/*    width: 450px;*/
-/*    height: 350px;*/
-/*}*/
+.orange {
+    background-color: darkorange;
+    width: 440px;
+    height: 350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/*.orange>div {*/
-/*    background-color: gray;*/
-/*    border: 2px solid black;*/
-/*    width: 50px;*/
-/*    height: 50px;*/
+.orange>div {
+    background-color: gray;
+    border: 3px solid black;
+    width: 60px;
+    height: 50px;
+    margin: 0;
+}
 
-/*}*/
+.orange>div:nth-child(odd) {
+    height: 75px;
+}
+
+h1 {
+    text-align: center;
+    margin: 1em;
+}

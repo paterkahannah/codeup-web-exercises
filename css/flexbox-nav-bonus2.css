@@ -4,12 +4,8 @@
     color: white;
     background-color: black;
     font-family: 'Montserrat', sans-serif;
-    margin: 1em;
+    margin: 0;
     padding: 0;
-}
-
-ul {
-
 }
 
 li {
@@ -20,19 +16,41 @@ a {
     text-decoration: none;
 }
 
-#logo {
-    font-size: 3em;
+a:hover {
+    color: gray;
 }
 
 hr {
     border-width: 1px;
 }
 
-a:hover {
-    color: gray;
+footer {
+    padding: 5em;
 }
 
-.one {
+.upper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#lower-links {
+    display: flex;
+    justify-content: center;
+}
+
+i {
+    margin: 1em;
+}
+
+p {
+    text-align: center;
+}
+
+hr {
+    margin: 4em 2em;
+}
+
+#logo {
+    font-size: 2em;
 }
