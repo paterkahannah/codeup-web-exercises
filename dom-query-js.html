@@ -24,24 +24,18 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
-<p class="sub-paragraph">
-    wat
-</p>
 
 <script>
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
         var mainHeader = document.getElementById('main-header');
-        console.log(mainHeader);
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
         mainHeader.innerHTML = "JavaScript is Cool";
-        console.log(mainHeader.innerHTML);
 
         // TODO: Uncomment the next line and get the sub header element by id
         var subHeader = document.getElementById('sub-header');
-        console.log(subHeader);
 
         // TODO: Set the text color of subHeader to blue
         subHeader.style.color = 'blue';
@@ -54,21 +48,18 @@
         }
 
         // TODO: Set text color on every other list item to grey
-
         for (var i = 0; i < listItems.length; i++) {
-            i % 2 === 1 ? listItems[i].style.color = 'blue' : null;
+            i % 2 === 1 ? listItems[i].style.color = 'grey' : null;
         }
 
         // TODO: Set text color of li with dbid = 1 to blue
-        listItems[0].style.color = 'red';
+        listItems[0].style.color = 'blue';
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraph = document.getElementsByClassName('sub-paragraph');
-        console.log(subParagraph)
+        var subParagraphs = document.getElementsByClassName('sub-paragraph');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraph = 'Mission Accomplished!';
-        console.log(subParagraph);
+        subParagraphs[0].innerHTML = 'Mission Accomplished!';
 
     })();
     // <img src="../../../../var/folders/w0/jh_ysqd50zv9dd472l62syq80000gn/T/TemporaryItems/NSIRD_screencaptureui_6GPiF4/Screen Shot 2021-04-22 at 3.45.28 PM.png"height="210" width="864"/>
