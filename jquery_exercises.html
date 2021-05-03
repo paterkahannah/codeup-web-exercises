@@ -6,10 +6,10 @@
 </head>
 <body>
 
-<h3 id='h1' class="">Para 1</h3>
+<h1 id='h1' class="">Para 1</h1>
 <p id="p-one">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab dignissimos dolorum facilis hic quaerat quibusdam quo tenetur! Ab accusantium alias doloremque, nam nulla odit placeat sequi unde vitae, voluptates, voluptatibus?</p>
 
-<h3 class="codeup">Para 2</h3>
+<h1 class="codeup">Para 2</h1>
 <p id="p-two">Bunchaaaaaa Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam, architecto atque blanditiis debitis delectus eveniet fugit inventore laborum minima nesciunt non, omnis optio provident quam quia quod sapiente voluptate.</p>
 
 <ul>
@@ -20,22 +20,18 @@
 </ul>
 
 <div>
-    <h3 class="codeup">Para 3 in a div</h3>
+    <h1 class="codeup">Para 3 in a div</h1>
     <p id="p-three">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam, architecto atque blanditiis debitis delectus eveniet fugit inventore laborum minima nesciunt non, omnis optio provident quam quia quod sapiente voluptate.</p>
 
 </div>
 
-<button id="changes">button</button>
+<button id="changes">hit button to change text to pink</button>
 
 <script src="js/jquery-3.6.0.js"></script>
 
 <script>
-    // $('h3').click(function () {
-    //     // $(this).next().slideToggle(500);
-    //     $(this).next().fadeToggle(500);
-    //
-    // });
-    //
+
+    // // EXERCISE PART 1
     // $(document).ready(function() {
     //     alert( 'The DOM has finished loading!' );
     // });
@@ -45,39 +41,42 @@
     //
     // });
     //
+    // // PART 2.1 - id selectors
+    // // vv two different ways to write alert contents
     // var contents = $('#p-one').html();
     // alert(contents);
-    // contents = $('#p-two').html();
-    // alert(contents);
-
-
+    //
+    // alert($('#p-two').html());
+    //
+    // // 2.2 class selectors
     // $('.codeup').css('border', '1px red solid');
-
-
+    //
+    //
+    // // 2.3 & 4 element selectors
     // $('li').css('font-size', '20px');
     // $('h3, p, li').css('background-color', 'rgba(255, 0, 0, .2)');
     //
-    // $("p").each(function() {
+    // $("h1").each(function() {
     //     alert($(this).html());
     // });
 
+    // PART 3
+    $('#h1').click(function() {
+        $(this).css('background-color', 'red');
+    });
 
-    // $('#h1').click(function() {
-    //     $(this).css('background-color', 'red');
-    // });
-    //
-    // $('p').dblclick(function() {
-    //     $(this).css('font-size', '18px');
-    // });
-    //
-    // $('li').hover(
-    //     function() {
-    //         $(this).css('color', 'red');
-    //     },
-    //     function() {
-    //         $(this).css('color', 'black');
-    //     }
-    // );
+    $('p').dblclick(function() {
+        $(this).css('font-size', '18px');
+    });
+
+    $('li').hover(
+        function() {
+            $(this).css('color', 'red');
+        },
+        function() {
+            $(this).css('color', 'black');
+        }
+    );
 
 </script>
 
