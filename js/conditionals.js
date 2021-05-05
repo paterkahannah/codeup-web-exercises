@@ -21,13 +21,9 @@
  */
 
 function analyzeColor(color) {
-    if (color === 'blue') {
-        return 'blue is the color of the sky';
-    } else if (color === 'red') {
-        return 'Stawberries are red';
-    } else {
-        return 'I do not know anything about that color';
-    }
+    if (color === 'blue') return 'blue is the color of the sky';
+    if (color === 'red') return 'Stawberries are red';
+    return 'I do not know anything about that color';
 }
 
 console.log(analyzeColor('blue'));
@@ -37,11 +33,11 @@ console.log(analyzeColor('green'));
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
-// - `randomColor`: contains a single random color value from the list (this
-//                  will contain a different color every time the page loads)
+// - `randomColor`: contains a single random color value from the list (this will contain a different color every time the page loads)
 
 var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
 var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
 /**
  * TODO:
  * Pass the `randomColor` variable to your function and console.log the results.
@@ -55,7 +51,7 @@ console.log(analyzeColor(randomColor));
  * Refactor your above function to use a switch-case statement
  */
 
-function analyzeColor(color) {
+function analyzeColor2(color) {
     switch (color) {
         case 'blue':
             return 'blue is the color of the sky';
@@ -68,7 +64,8 @@ function analyzeColor(color) {
     }
 }
 
-console.log(analyzeColor(randomColor));
+console.log(randomColor);
+console.log(analyzeColor2(randomColor));
 
 /**
  //  * TODO:
@@ -103,31 +100,13 @@ alert(analyzeColor(userFavColor));
  * return value.
  */
 
-// function calculateTotal(luckyNum, total) {
-//     if (luckyNum === 1) {
-//         return 'your new total is $' + (total - (total * .1)).toFixed(2);
-//     } else if (luckyNum === 2) {
-//         return 'your new total is $' + (total - (total * .25)).toFixed(2);
-//     } else if (luckyNum === 3) {
-//         return 'your new total is $' + (total - (total * .35)).toFixed(2);
-//     } else if (luckyNum === 4) {
-//         return 'your new total is $' + (total - (total * .50)).toFixed(2);
-//     } else if (luckyNum === 5) {
-//         return 'your new total is $' + (total - (total * .100)).toFixed(2);
-//     } else {
-//         return 'it is free';
-//     }
-// }
-
-// this block is a shorter version of the above ^^^ code
-
 function calculateTotal(luckyNum, total) {
-    if (luckyNum === 1) return 'your new total is $' + (total - (total * .1)).toFixed(2);
-    if (luckyNum === 2) return 'your new total is $' + (total - (total * .25)).toFixed(2);
-    if (luckyNum === 3) return 'your new total is $' + (total - (total * .35)).toFixed(2);
-    if (luckyNum === 4) return 'your new total is $' + (total - (total * .50)).toFixed(2);
-    if (luckyNum === 5) return 'your new total is $' + (total - (total * .100)).toFixed(2);
-    return 'it is free';
+    if (luckyNum === 0) return ', better luck next time';
+    if (luckyNum === 1) return ' but you won a 10% discount, your new total is $' + (total - (total * .1)).toFixed(2);
+    if (luckyNum === 2) return ' but you won a 25% discount, your new total is $' + (total - (total * .25)).toFixed(2);
+    if (luckyNum === 3) return ' but you won a 35% discount, your new total is $' + (total - (total * .35)).toFixed(2);
+    if (luckyNum === 4) return ' but you won a 50% discount, your new total is $' + (total - (total * .50)).toFixed(2);
+    if (luckyNum === 5) return 'you won a 100% discount, everything is free!';
 }
 
 console.log(calculateTotal(1, 12));
@@ -144,11 +123,15 @@ console.log(calculateTotal(5, 12));
  * price before the discount was, and what their price after the discount is.
  */
 
+// this is a number between 0-5! Not 1-6....
 var luckyNumber = Math.floor(Math.random() * 6);
+console.log(luckyNumber);
 
-var askCust = parseFloat(prompt('What was your total bill?'));
+var askCust = parseFloat(prompt('Enter your Walmart total to be included in a drawing for discount!'));
 
-alert("You're lucky (or unlucky number) was " + luckyNumber + ". You're original bill was $" + askCust.toFixed(2) + ", " + calculateTotal(luckyNumber, askCust));
+    if (askCust === 0) alert('No Walmart bill? Oops');
+    if (isNaN(askCust)) alert('this is not a number');
+    if (askCust > 0) alert("You're lucky (or unlucky number) was " + luckyNumber + ". You're original total was $" + askCust.toFixed(2) + calculateTotal(luckyNumber, askCust));
 
 /**
  * TODO:
@@ -169,33 +152,27 @@ alert("You're lucky (or unlucky number) was " + luckyNumber + ". You're original
 
 var ask = confirm('Would you like to enter a number?');
 
-var response = ask ? parseFloat(prompt('Please enter a number!')) : false;
+var response = ask ? parseFloat(prompt('Please enter a number!')) : null;
 
 // if (!isNaN(response)) {
 //     response % 2 === 0 ? alert('This is an even number') : alert('This is an odd number');
-// // i dont understand why adding 100 is outputting wrong
-//     alert("Your number + 100 is " + parseFloat(response) + 100);
+//     alert("Your number + 100 is " + (response + 100));
 //     response > 0 ? alert('This number is positive') : alert('This number is negative');
 // } else {
 //     alert('this is not a number')
 // }
 
-// this is alternative code to the commented ^^^ block above, it does the same thing, but written differently
-
+// vv refactored code to use functions, per assigment
 function oddOrEven(response) {
     return response % 2 === 0 ? 'This is an even number' : 'This is an odd number';
 }
 
 function plus100(response) {
-    return 'This number + 100 equals to ' + (parseFloat(response) + 100);
+    return 'This number + 100 equals ' + (response + 100);
 }
 
 function positiveOrNegative(response) {
-    if (response > 0) {
-        return 'This number is positive.';
-    } else {
-        return 'This number is negative.';
-    }
+    return response > 0 ? 'This number is positive.' : 'This number is negative.';
 }
 
 if (!isNaN(response)) {
@@ -203,5 +180,5 @@ if (!isNaN(response)) {
     alert(plus100(response));
     alert(positiveOrNegative(response));
 } else {
-    alert('That is not a number')
+    alert('That is not a number');
 }

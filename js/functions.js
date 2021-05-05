@@ -23,7 +23,6 @@ alert(sayHello('Hannah'))
  */
 
 var helloMessage = sayHello('Hannah');
-
 console.log(helloMessage);
 
 /**
@@ -36,8 +35,6 @@ console.log(helloMessage);
 var myName = 'Hannah';
 console.log(sayHello(myName));
 
-// Don't modify the following line, it generates a random number between 1 and 3
-// and stores it in a variable named random
 var random = Math.floor((Math.random() * 3) + 1);
 
 /**
@@ -65,7 +62,6 @@ function isTwo(x) {
 console.log(isTwo(1));
 console.log(isTwo(2));
 console.log(isTwo(3));
-
 console.log(random);
 
 /**

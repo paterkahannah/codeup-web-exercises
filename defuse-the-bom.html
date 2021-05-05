@@ -3,12 +3,26 @@
 <head>
     <meta charset="utf-8">
     <title>Defuse the BOM</title>
+    <style>
+        * {
+            text-align: center;
+        }
+        .hide {
+            display: none;
+        }
+        h1, h2 {
+            margin-top: 200px;
+        }
+    </style>
 </head>
 <body>
 
 <h2 id="message">This BOM will self destruct in <span id="timer">5</span> seconds...</h2>
-<button id="defuser">Defuse the BOM</button>
+<br>
+<br>
+<button id="defuser">Defuse the BOM!</button>
 
+<script src="js/jquery-3.6.0.min.js"></script>
 <script>
 (function() {
     "use strict";
@@ -18,24 +32,25 @@
 
     // TODO: This function needs to be called once every second
     var timeOutId = setInterval(function updateTimer() {
-        if (detonationTimer == 0) {
-            alert('EXTERMINATE!');
-            document.body.innerHTML = '';
+        if (detonationTimer === 0) {
+            document.body.innerHTML = '<h1>TERMINATED</h1>';
+            setInterval(function(){  $('h1').toggleClass('hide'); }, 500);
+            $('body').css('background', 'red');
         } else if (detonationTimer > 0) {
             document.getElementById('timer').innerHTML = detonationTimer;
         }
-
         detonationTimer--;
+
     }, interval);
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
         clearInterval(timeOutId);
+        document.body.innerHTML = '<h1>whew...</h1>';
     }
 
     // Don't modify anything below this line!
-    //
     // This causes the defuseTheBOM() function to be called
     // when the "defuser" button is clicked.
     // We will learn about events in the DOM lessons

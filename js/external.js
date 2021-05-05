@@ -24,12 +24,6 @@ while (isNaN(hercules)) {
 
 var total = alert("Total cost for the rentals was $" + ((mermaid + bear + hercules) * 3));
 
-// while (counter <= 65536) {
-//     console.log(counter);
-//     counter = counter * 2;
-// }
-
-
 // part 3.2
 while (isNaN(google)) {
     var google = parseFloat(prompt('How many hours did you work at Google?'));

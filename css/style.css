@@ -5,15 +5,10 @@
 }
 
 body {
-    /*background-image: url("../img/3.jpeg");*/
-    /*background-size: cover;*/
-    /*background-position: center;*/
     font-family: 'Raleway', sans-serif;
     background-color: black;
     color: #fe7f27;
 }
-
-/*@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');*/
 
 table {
     padding: 0 0 25px 0;
