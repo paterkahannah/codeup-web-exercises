@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Intro</title>
+</head>
+<body>
+
+    <h1>Essential jQuery Methods</h1>
+    <h2 id="leader">I am the leader</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, corporis dignissimos, dolorem eos et fuga fugiat id illum ipsa libero, provident ut. Ab illo ipsum ut! Assumenda et inventore unde.</p>
+    <h2 id="follower">I am the follower</h2>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        var htmlMethod = $("#leader").html(); // if you do this with no parenthesis on html it will return the jQuery method ;)
+        var followerContent = $('#follower').html('i am the leader');
+        if (followerContent.html() === 'i am the leader') {
+            $('#leader').html('what you are is a copycat');
+        }
+    </script>
+
+</body>
+</html>

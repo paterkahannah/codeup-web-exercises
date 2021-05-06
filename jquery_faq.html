@@ -6,106 +6,129 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <style>
 
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+    * {
+      font-family: 'Open Sans', sans-serif;
+    }
     .invisible {
       visibility: hidden;
     }
-
     img {
       width: 250px;
       height: 400px;
-      border: brown 5px solid;
+      border: orange 5px solid;
     }
     dd {
-      color: green;
+      color: blue;
       text-indent: 20px;
     }
-
     .highlighted {
       background: yellow;
     }
-    .image-one {
-
+    a {
+      color: red;
+    }
+    .col-6{
+      border: solid black 3px;
+    }
+    button {
+      margin: 1em;
+    }
+    li, h3 {
+      list-style: none;
+      text-align: center;
+    }
+    ul {
+      margin-right: 2em;
     }
 
   </style>
 </head>
-<body>
+<body class="container d-flex row m-auto">
 
-<dl>
-  <dt>Is bigfoot real</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
+<h1 class="text-center my-5 bg-warning col-12">UTAH PARKS</h1>
 
-  <dt>Are aliens out here?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>Can I start a fire</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>How long is this hike?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>Where are the restrooms?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>Is there a coffee shop here?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>Where can I get the good pictures?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>Where are the buffalo?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>Where are the bears?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-
-  <dt>How long is this going to take?</dt>
-  <dd class="invisible">A large feline inhabiting Bodmin Moor.</dd>
-</dl>
-
-<a href="#" id="invisible">^^ Click to show answers.</a>
+<div class="col-6 p-3">
+<h4 class="">FAQ</h4>
 <br>
-<br>
-<p>Click bold questions to highlight</p>
-<br>
-<button id="first-btn">Click to highlight last list items</button>
-<h3 id="carlsbad">Carlsbad Caverns</h3>
+  <dl>
+    <dt>Is bigfoot real</dt>
+    <dd class="invisible">Yes</dd>
+
+    <dt>Are aliens out here?</dt>
+    <dd class="invisible">Hopefully</dd>
+
+    <dt>Can I start a fire</dt>
+    <dd class="invisible">NO</dd>
+
+    <dt>How long is this hike?</dt>
+    <dd class="invisible">Just enjoy the experience</dd>
+
+    <dt>Where are the restrooms?</dt>
+    <dd class="invisible">Over there</dd>
+
+    <dt>Is there a coffee shop here?</dt>
+    <dd class="invisible">Of course</dd>
+
+    <dt>Where can I get the good pictures?</dt>
+    <dd class="invisible">Any direction</dd>
+
+    <dt>Where are the buffalo?</dt>
+    <dd class="invisible">Over there</dd>
+
+    <dt>Where are the bears?</dt>
+    <dd class="invisible">Hopefully nowhere here</dd>
+
+    <dt>How long is this going to take?</dt>
+    <dd class="invisible">2 hours</dd>
+  </dl>
+  <div class="text-center">
+    <a href="#" id="invisible">^^ Click to show answers.</a>
+    <br>
+    <p>** Click black text to highlight</p>
+  </div>
+</div>
+
+<div class="col-6 p-3 text-center">
 <ul>
+  <h3 id="carlsbad">Carlsbad Caverns</h3>
   <li>I've been there</li>
   <li>It's pretty</li>
   <li>Very pretty</li>
   <li>I'd go again</li>
 </ul>
-<h3>Zion</h3>
 <ul id="zion">
+  <h3>Zion</h3>
   <li>I've been there</li>
   <li>It's pretty</li>
   <li>Very pretty</li>
   <li>I'd go again</li>
 </ul>
-<h3>Arches</h3>
 <ul id="arches">
+  <h3>Arches</h3>
   <li>I've been there</li>
   <li>It's pretty</li>
   <li>Very pretty</li>
   <li>I'd go again</li>
 </ul>
+  <button class="mt-5" id="first-btn">Click to highlight last list items</button>
+</div>
 
-<section class="d-flex flew-wrap m-4">
-  <div id='div1' class="div1">
-    <img src="img/2.jpeg" alt="">
+<section class="d-flex flew-wrap m-3 row text-center">
+  <div id='div1' class="div1 col-4">
+    <img class="" src="img/moab1.jpeg" alt="">
     <br>
     <button id="btn1">Switch</button>
   </div>
 
-  <div id="div2" class="div2">
-    <img src="img/3.jpeg" alt="">
+  <div id="div2" class="div2 col-4">
+    <img src="img/moab2.jpeg" alt="">
     <br>
     <button id="btn2">Switch</button>
   </div>
 
-  <div class="div3">
-    <img src="img/10.png" alt="">
+  <div class="div3 col-4">
+    <img src="img/moab3.jpeg" alt="">
     <br>
     <button id="btn3">Switch</button>
   </div>
@@ -128,7 +151,7 @@
     });
 
     $('dt').click(function(event) {
-      event.preventDefault();
+      // event.preventDefault();
       $(this).toggleClass('highlighted').siblings().removeClass("highlighted");
     });
 
@@ -137,14 +160,47 @@
   });
 
    $('h3').click(function() {
-      $(this).next().css('font-weight', 'bold')
+      $(this).nextAll().css('font-weight', 'bold')
     });
 
   $('li').click(function() {
-    $(this).parent().children().first().css('color', 'blue')
+    $(this).parent().children().first().next().css('color', 'blue')
   });
 
+  // BONUS FROM HELL, PLEASE DONT MAKE ME TRAVERSE ANYMORE AFTER THIS
+  $('#btn1').click(function() {
+    var nextImg = $(this).parent().next().children().first().attr('src'); // captures 2nd picture
+    $(this).parent().next().children().first().attr('src', // goes to 2nd picture
+            $(this).parent().children().first().attr('src')); // changes src to 1st picture, didn't use ID's because changes need to be dynamic
+    $(this).parent().children().first().attr('src', nextImg); // changes 1st picture to captured 2nd picture
+  });
 
+  $('#btn3').click(function() {
+    var second = $(this).parent().prev().children().first().attr('src');
+    $(this).parent().prev().children().first().attr('src',
+            $(this).parent().children().first().attr('src'));
+    $(this).parent().children().first().attr('src', second);
+  });
+
+  $('#btn2').click(function() {
+    function a () {
+      var second = $('#btn2').parent().next().children().first().attr('src');
+      $('#btn2').parent().next().children().first().attr('src',
+              $('#btn2').parent().children().first().attr('src'));
+      $('#btn2').parent().children().first().attr('src', second);
+    }
+    function b () {
+      var second = $('#btn2').parent().prev().children().first().attr('src');
+      $('#btn2').parent().prev().children().first().attr('src',
+              $('#btn2').parent().children().first().attr('src'));
+      $('#btn2').parent().children().first().attr('src', second);
+    }
+    function coinFlip() {
+      return Math.floor(Math.round((Math.random())));
+    }
+    console.log(coinFlip());
+    coinFlip() === 1 ? a() : b() ;
+  });
 
 </script>
 
