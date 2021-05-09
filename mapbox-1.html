@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MapBox Mini Exercise 1</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+<div id='map' style='width: 600px; height: 500px;'></div>
+<p>Flying from San Antonio to Dallas!</p>
+<button>Zoom In</button>
+
+<!--SCRIPTS-->
+<script src="js/keys.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/satellite-v9\n', // style URL
+        center: [-98.4683, 29.5312], // starting position [lng, lat]
+        // // N is positive, S, negative, W is negative, E positive
+        zoom: 12 // starting zoom
+    });
+    console.log(map.getCenter());
+
+    setTimeout(function() {
+        map.flyTo({
+            center: [-97.0403, 32.8998],
+            zoom: 12,
+            speed: 0.2,
+        })
+        map.setStyle('mapbox://styles/mapbox/streets-v11\n');
+    }, 3000);
+
+    $('button').click(function() {
+        map.setZoom(map.getZoom() + 1);
+    });
+</script>
+
+</body>
+</html>
