@@ -11,7 +11,7 @@
         "quantity": 5,
         "categories": [
             "tool",
-            " powered"
+            "powered"
         ],
         "price": 100
     }, {
@@ -19,8 +19,8 @@
         "quantity": 5,
         "categories": [
             "tool",
-            " gas",
-            " outdoor"
+            "gas",
+            "outdoor"
         ],
         "price": 200
     }, {
@@ -37,5 +37,5 @@
         "isATool"
     ],
     "price": 1000000
-}
+    }
 ]

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        body {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        }
+    </style>
+</head>
+<body>
+    <div id="posts"></div>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $.ajax("data/blog.json").done(function (data) {
+
+            var blogs = '';
+
+            $.each(data, function (key, value) {
+
+                blogs += '<h1 class="text-center m-5">' + value.title + '</h1>';
+
+                blogs += '<p>' + value.content + '</p>';
+
+                blogs += '<p>' + 'Categories: ' + value.categories.join(', ')+ '</p>';
+
+                blogs += '<p class="">' + value.date + '</p>';
+
+                blogs += '</tr>';
+            });
+
+            $('#posts').append(blogs);
+        });
+
+    </script>
+</body>
+</html>
