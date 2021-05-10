@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MapBox Mini Exercise 2</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
+
+        .font {
+            font-family: Girassol, sans-serif;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome to MapBox!</h1>
+<div id='map' style='width: 600px; height: 500px;'></div>
+<br>
+<label for="input">Type in an address</label>
+<input id="input">
+<button id="btn">Go!</button>
+
+<!--SCRIPTS-->
+<script src="js/keys.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script src="js/map-geocoder-utils.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    // Mini Exercise 2
+    // TODO: Create an HTML file called mapbox-2.html. In this file, create a map centered
+    // TODO: on New York with a marker on the Statue of Liberty. Add a popup to the Statue of
+    // TODO: Liberty marker with the text "Statue of Liberty".
+    // *BONUS - when the marker is dragged and released, display the coordinates in an H1.
+    // New York = [-74.2179, 43.2994]
+    // Statue of Liberty = [-74.0445, 40.6892]
+
+    // creates map
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+        center: [-74.2179, 43.2994], // starting position [lng, lat]
+        zoom: 5 // starting zoom
+    });
+
+    // adds controls in top right
+    map.addControl(new mapboxgl.NavigationControl());
+
+    // creates red marker
+    var marker = new mapboxgl.Marker({
+        color: 'red',
+    })
+        .setLngLat([-74.0445, 40.6892])
+        .setDraggable(true)
+        .addTo(map);
+
+    marker.on('dragend', function () {
+        // alert('The marker has been moved');
+
+        // this puts coordinates in h1 on page
+        // document.querySelector('h1').innerHTML = marker.getLngLat().toString();
+
+        // I elected to show coordinates in popup as opposed to the h1 above map
+        popup.setHTML("<h3 class='font'>" + marker.getLngLat().toString() + "</h3>");
+    });
+
+    var popup = new mapboxgl.Popup()
+        .setLngLat(marker.getLngLat())
+        .setHTML("<h3>Statue of Liberty!</h3>")
+        .addTo(map);
+
+    marker.setPopup(popup);
+
+    // popup.addClassName('popup-font');
+
+    // David's code to fly us around
+    $('#btn').click(function () {
+       var userInput = $('#input').val();
+       geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info){
+           console.log(info);
+           var newCenter = {
+               lng: info[0],
+               lat: info[1]
+           };
+           marker.setLngLat(newCenter);
+           popup.setHTML('<h3 class="font">' + userInput + '</h3>')
+           map.flyTo({center: newCenter});
+       });
+    });
+</script>
+
+</body>
+</html>
