@@ -66,12 +66,11 @@
         popup.setHTML("<h3 class='font'>" + marker.getLngLat().toString() + "</h3>");
     });
 
-    var popup = new mapboxgl.Popup()
+        var popup = new mapboxgl.Popup()
         .setLngLat(marker.getLngLat())
         .setHTML("<h3>Statue of Liberty!</h3>")
         .addTo(map);
-
-    marker.setPopup(popup);
+        marker.setPopup(popup);
 
     // popup.addClassName('popup-font');
 

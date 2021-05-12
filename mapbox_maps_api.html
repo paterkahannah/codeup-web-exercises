@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MapBox</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+    <h1>Welcome to MapBox!</h1>
+    <div id='map' style='width: 600px; height: 500px;'></div>
+    <br>
+    <button id="btn">Zoom In</button>
+    <br>
+    <select name="" id="">
+        <option value="">5</option>
+        <option value="">15</option>
+        <option value="">20</option>
+    </select>
+<script src="js/keys.js"></script>
+<script src="js/map-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossOrigin="anonymous"></script>
+<script>
+
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/dark-v10', // style URL
+        center: [-98.4916, 29.4252], // starting position [lng, lat]
+        zoom: 9 // starting zoom
+    });
+    
+    // // COMMENTED OUT CODE IS PRE-REFACTOR EXERCISE
+    // map.addControl(new mapboxgl.NavigationControl());
+
+    // var marker = new mapboxgl.Marker({
+    //     color: 'red',
+    // })
+    //     .setLngLat([-98.5931283617778, 29.60091934355618])
+    //     .setDraggable(true)
+    //     .addTo(map);
+    //
+    // var popup = new mapboxgl.Popup()
+    // .setLngLat(marker.getLngLat())
+    // .setHTML("<h3>Velvet taco!</h3>")
+    //
+    //
+    // marker.on('dragend', function () {
+    //     alert('The marker has been moved');
+    // });
+    //
+    // // causes popup to show
+    // marker.on('click', function () {
+    //     marker.addTo(map);
+    //
+    // });
+    //
+    // // add popup to red marker
+    // marker.setPopup(popup);
+    // popup.addClassName('popup-font');
+    //
+    // popup.addClass('font');
+    //
+    // $('#btn').click(function() {
+    //     map.setZoom(map.getZoom() + 1);
+    // });
+    //
+    // geocode('600 Navarro St #600, San Antonio, TX 78205\n', MAPBOX_ACCESS_TOKEN).then(function (results) {
+    //     console.log(results);
+    // });
+    //
+    // reverseGeocode({lng: -98.489598, lat: 29.426808}, MAPBOX_ACCESS_TOKEN).then(function (results) {
+    //     console.log(results);
+    // })
+
+        var favFood = [
+            {
+            name: "Velvet Taco",
+            location: '5515 N Loop 1604 W #105, San Antonio, TX 78249',
+            image: '<img src="img/velvetTaco.jpeg">'
+
+        }, {
+            name: "Torchys Taco",
+            location: '999 E Basse Rd #183, San Antonio, TX 78209',
+            image: '<img src="img/torchys.jpeg">'
+        }, {
+            name: "Las Palapas",
+            location: '3039 TPC Pkwy, San Antonio, TX 78259',
+            image: '<img src="img/lasPalapas.jpeg">'
+        }
+    ]
+
+        favFood.forEach(function (location){
+            geocode(location.location, MAPBOX_ACCESS_TOKEN).then(function (result) {
+                console.log(result)
+            var popup = new mapboxgl.Popup()
+                .setHTML('<h3>' + location.name + '</h3>'
+                + location.image);
+                console.log(location.name)
+            var marker = new mapboxgl.Marker()
+                .setLngLat(result)
+                .addTo(map)
+                .setPopup(popup);
+        })
+    });
+
+    // $('select option:selected')(function() {
+    //     map.setZoom(map.getZoom() + 1);
+    // });
+
+</script>
+
+</body>
+</html>

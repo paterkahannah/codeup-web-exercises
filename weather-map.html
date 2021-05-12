@@ -5,12 +5,7 @@
     <title>SA Weather</title>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
     <style>
-        .card {
-            /*display: inline-block;*/
-            /*border: solid gray 1px;*/
-        }
         button {
             border: none;
             border-radius: 5px;
@@ -27,7 +22,6 @@
 <br>
 <br>
 <div class="d-flex text-center" id="weather"></div>
-<div class="d-flex text-center" id="weather2"></div>
 <div class="m-auto w-100" id='map' style='width: 600px; height: 500px;'></div>
 
 <script src="js/keys.js"></script>
@@ -38,14 +32,10 @@
 
 <!--    INITIAL COORDINATES-->
     var coordinates = [-98.4936, 29.4241];
-
     var coordinatesLon = coordinates[0];
-    // console.log('lon ' + coordinatesLon)
-
     var coordinatesLat = coordinates[1];
-    // console.log('lat ' + coordinatesLat)
 
-// THE INITIAL MAP
+// MAP
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map', // ID
@@ -79,27 +69,26 @@ function setWeather() {
             var today = data.daily[i];
             var todayDate = new Date(today.dt * 1000).toDateString();
 
-            // var icon = today.weather[0].icon
-            // console.log(icon)
-            // use search string method to replace data? in [icon]?
+
+            // html += '<p>' + '<a href="http://openweathermap.org/img/w/[icon2].png"> </a>' + '</p>'
+            // html += '<hr>'
+            // add chance of rain
+            // resp.alerts[0].description
+            // Add radar
+
 
             var html = '<div class="card w-100 m-2">'
-            html += '<div class="card-header">' + todayDate + '</div>'
-
-            html += '<p>' + today.temp.min.toFixed(0) + '<span>&#8457;</span>\n / ' + today.temp.max.toFixed(0) + '<span>&#8457;</span>\n </p>'
-            // html += '<hr>'
-            // html += '<p>' + '<a href="http://openweathermap.org/img/w/[icon2].png"> </a>' + '</p>'
-            html += '<hr>'
-            html += '<p>' + 'Description: ' + '<strong>' + today.weather[0].description + '</strong>' + '</p>'
-            html += '<hr>'
-            html += '<p>' + 'Humidity: ' + '<strong>' + today.humidity + '</strong>' + '</p>'
-            html += '<hr>'
-            html += '<p>' + 'Wind: ' + '<strong>' + today.wind_speed.toFixed(0) + '</strong>' + ' mph' + '</p>'
-            html += '<hr>'
-            html += '<p>' + 'Pressure: ' + '<strong>' + today.pressure + '</strong>' + '</p>'
-
-            html += '</div>'
-
+            + '<div class="card-header">' + todayDate + '</div>'
+            + 'low ' + today.temp.min.toFixed(0) + '<span>&#8457;</span>\n / high ' + today.temp.max.toFixed(0) + '<span>&#8457;</span>\n'
+            + '<hr>'
+            + 'Description: ' + '<strong>' + today.weather[0].description + '</strong>'
+            + '<hr>'
+            + 'Humidity: ' + '<strong>' + today.humidity + '</strong>'
+            + '<hr>'
+            + 'Wind: ' + '<strong>' + today.wind_speed.toFixed(0) + '</strong>' + ' mph'
+            +'<hr>'
+            + 'Pressure: ' + '<strong>' + today.pressure + '</strong>'
+            + '</div>'
             $('#weather').append(html);
         }
     });
@@ -117,21 +106,17 @@ marker.on('dragend', function () {
 $('#btn').click(function () {
     var userInput = $('#input').val();
     geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info){
-
         console.log(info);
         var newCenter = {
             lng: info[0],
             lat: info[1]
         };
-
         map.flyTo({center: newCenter});
-
         marker
             .setLngLat(newCenter)
             .setDraggable(true)
             .addTo(map)
             .setLngLat(newCenter);
-
         coordinatesLon = info[0]
         coordinatesLat = info[1]
         setWeather();
