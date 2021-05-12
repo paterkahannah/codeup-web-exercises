@@ -6,7 +6,6 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Girassol&display=swap');
-
         .font {
             font-family: Girassol, sans-serif;
             color: red;
@@ -55,24 +54,18 @@
         .setLngLat([-74.0445, 40.6892])
         .setDraggable(true)
         .addTo(map);
-
     marker.on('dragend', function () {
         // alert('The marker has been moved');
-
         // this puts coordinates in h1 on page
         // document.querySelector('h1').innerHTML = marker.getLngLat().toString();
-
         // I elected to show coordinates in popup as opposed to the h1 above map
         popup.setHTML("<h3 class='font'>" + marker.getLngLat().toString() + "</h3>");
     });
-
         var popup = new mapboxgl.Popup()
         .setLngLat(marker.getLngLat())
         .setHTML("<h3>Statue of Liberty!</h3>")
         .addTo(map);
         marker.setPopup(popup);
-
-    // popup.addClassName('popup-font');
 
     // David's code to fly us around
     $('#btn').click(function () {
