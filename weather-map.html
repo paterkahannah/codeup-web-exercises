@@ -7,22 +7,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <style>
-        body {
-            /*background: linear-gradient(-45deg, #eed952, #e73c7e, #23a6d5);*/
-        }
         div {
             text-align: left;
             margin: 2px 10px;
         }
-        /*#alerts {*/
-        /*    overflow: hidden;*/
-        /*    !*text-overflow: ellipsis;*!*/
-        /*    white-space: nowrap;*/
-        /*    color: red;*/
-        /*}*/
-        /*#alerts:hover {*/
-        /*    white-space: normal;*/
-        /*}*/
         #wicon {
             height: 75px;
         }
@@ -47,11 +35,10 @@
         .mapboxgl-ctrl {
             margin: auto;
             padding: 0;
-            /*width: 30px;*/
         }
-        .hide {
-            display: none;
-        }
+        /*.hide {*/
+        /*    display: none;*/
+        /*}*/
     </style>
 </head>
 
@@ -84,11 +71,129 @@
     var lon = coordinates[0];
     var lat = coordinates[1];
 
+mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+var mapStyle = {
+    'version': 8,
+    'name': 'Dark',
+    'sources': {
+        'mapbox': {
+            'type': 'vector',
+            'url': 'mapbox://mapbox.mapbox-streets-v8'
+        },
+        'overlay': {
+            'type': 'image',
+            'url': 'https://docs.mapbox.com/mapbox-gl-js/assets/radar.gif',
+            'coordinates':
+                [
+                    [-80.425, 46.437],
+                    [-71.516, 46.437],
+                    [-71.516, 37.936],
+                    [-80.425, 37.936]
+                ]
+        }
+    },
+    'sprite': 'mapbox://sprites/mapbox/dark-v10',
+    'glyphs': 'mapbox://fonts/mapbox/{fontstack}/{range}.pbf',
+    'layers': [
+        {
+            'id': 'background',
+            'type': 'background',
+            'paint': { 'background-color': '#111' }
+        },
+        {
+            'id': 'water',
+            'source': 'mapbox',
+            'source-layer': 'water',
+            'type': 'fill',
+            'paint': { 'fill-color': '#2c2c2c' }
+        },
+        {
+            'id': 'boundaries',
+            'source': 'mapbox',
+            'source-layer': 'admin',
+            'type': 'line',
+            'paint': {
+                'line-color': '#797979',
+                'line-dasharray': [2, 2, 6, 2]
+            },
+            'filter': ['all', ['==', 'maritime', 0]]
+        },
+        {
+            'id': 'overlay',
+            'source': 'overlay',
+            'type': 'raster',
+            'paint': { 'raster-opacity': 0.85 }
+        },
+        {
+            'id': 'cities',
+            'source': 'mapbox',
+            'source-layer': 'place_label',
+            'type': 'symbol',
+            'layout': {
+                'text-field': '{name_en}',
+                'text-font': ['DIN Offc Pro Bold', 'Arial Unicode MS Bold'],
+                'text-size': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    4,
+                    9,
+                    6,
+                    12
+                ]
+            },
+            'paint': {
+                'text-color': '#969696',
+                'text-halo-width': 2,
+                'text-halo-color': 'rgba(0, 0, 0, 0.85)'
+            }
+        },
+        {
+            'id': 'states',
+            'source': 'mapbox',
+            'source-layer': 'place_label',
+            'type': 'symbol',
+            'layout': {
+                'text-transform': 'uppercase',
+                'text-field': '{name_en}',
+                'text-font': ['DIN Offc Pro Bold', 'Arial Unicode MS Bold'],
+                'text-letter-spacing': 0.15,
+                'text-max-width': 7,
+                'text-size': [
+                    'interpolate',
+                    ['linear'],
+                    ['zoom'],
+                    4,
+                    10,
+                    6,
+                    14
+                ]
+            },
+            'filter': ['==', ['get', 'class'], 'state'],
+            'paint': {
+                'text-color': '#969696',
+                'text-halo-width': 2,
+                'text-halo-color': 'rgba(0, 0, 0, 0.85)'
+            }
+        }
+    ]
+};
+
+// var map = new mapboxgl.Map({
+//     container: 'map',
+//     // maxZoom: 5.99,
+//     // minZoom: 4,
+//     zoom: 5,
+//     center: coordinates,
+//     style: mapStyle
+// });
+
 // MAP
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map', // ID
         style: 'mapbox://styles/mapbox/dark-v10',
+        // style: mapStyle,
         center: coordinates, // [lng, lat]
         zoom: 10
     });
@@ -116,32 +221,26 @@ function setWeather() {
             var todayDate = new Date(today.dt * 1000).toDateString();
             var iconcode = today.weather[0].icon;
             var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+
+            // var myDate = new Date(1000*today.sunset);
+            // var hours = date2.getHours();
+            // var minutes = "0" + date.getMinutes();
+            // var seconds = "0" + date.getSeconds();
+            // var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
             var html =
                 '<div class="card w-100 m-2">'
                     + '<div class="card-header m-0 text-center">' + todayDate + '</div>'
-
-
-
                     + '<div id="farenheight" class="d-flex justify-content-center">'
                         + '<div class="text-primary m-1">' + today.temp.min.toFixed(0) + '</div>'
                         + '<div class="text-danger m-1">' + '/ ' + today.temp.max.toFixed(0) + '</div>'
                         + '<span class="p-1">&#8457;</span>'
                     + '</div>'
-
-                    //
-                    // +'<div id="celsius" class="hide d-flex justify-content-center">'
-                    //     + '<div class="text-primary m-1">' + today.temp.min + '</div>'
-                    //     + '<div class="text-danger m-1">' + '/ ' + today.temp.max + '</div>'
-                    //     + '<span class="p-1">&#8451;</span>'
-                    // + '</div>'
-
-
-
-
                     + '<div class="text-center" id="icon"> <img alt="Weather" id="wicon" src=' + iconurl + '> </div>'
                     + '<div>' + today.weather[0].description + '</div>'
-                    + '<div><i class="fas fa-tint"></i> ' + today.pop * 100 + ' %</div>'
+                    + '<div><i class="fas fa-tint"></i> ' + (today.pop * 100).toFixed(0) + ' %</div>'
                     + '<div><i class="fas fa-wind"></i> ' + today.wind_speed.toFixed(0) + ' mph </div>'
+                    // + '<div><i class="fas fa-moon"></i> ' + formattedTime + ' mph </div>'
                     + '<div>Humidity: <strong>' + today.humidity + '</strong></div>'
                 + '</div>';
 
@@ -222,30 +321,6 @@ reverseGeo();
 
 // ZOOM CONTROLS TOP RIGHT
 map.addControl(new mapboxgl.NavigationControl());
-
-// radar
-// 7 n 10 day
-// Click change to celsius
-//mobile view
-
-// function celsius() {
-//     $.get("http://api.openweathermap.org/data/2.5/onecall", {
-//         APPID: OPEN_WEATHER_APPID,
-//         lon: lon,
-//         lat: lat,
-//         units: "imperial"
-//     }).done(function (data) {
-//
-//         var html =
-//
-//
-//     });
-// }
-
-// $("#celsiusbtn").click(function() {
-//     $('#farenheight').css('display', 'none');
-//     // $('#celsius').toggleClass('hide');
-// });
 
 </script>
 </body>
