@@ -5,47 +5,84 @@
     <title>SA Weather</title>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <style>
+        body {
+            /*background: linear-gradient(-45deg, #eed952, #e73c7e, #23a6d5);*/
+        }
         div {
             text-align: left;
-            /*padding: 5px;*/
+            margin: 2px 10px;
         }
-        #alerts {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            /*max-width: 70vw;*/
-            color: red;
+        /*#alerts {*/
+        /*    overflow: hidden;*/
+        /*    !*text-overflow: ellipsis;*!*/
+        /*    white-space: nowrap;*/
+        /*    color: red;*/
+        /*}*/
+        /*#alerts:hover {*/
+        /*    white-space: normal;*/
+        /*}*/
+        #wicon {
+            height: 75px;
         }
-        #alerts:hover {
-            white-space: normal;
+        #map {
+            width: 98vw;
+            height: 500px;
+            border-radius: 5px;
+        }
+        input {
+            margin-left: 12px;
+        }
+        #btn {
+            margin-left: 7px;
+            border: none;
+            border-radius: 5px;
+            height: 35px;
+            width: 50px;
+        }
+        section {
+            align-items: center;
+        }
+        .mapboxgl-ctrl {
+            margin: auto;
+            padding: 0;
+            /*width: 30px;*/
+        }
+        .hide {
+            display: none;
         }
     </style>
 </head>
-<body class="">
 
-<h1 class="bg-warning p-2 text-center">Weather</h1>
-<h4 class="ml-2" id="subHead"></h4>
-<h6 class="ml-2" id="alerts"></h6>
-<br>
-<!--<label class="ml-5 mr-2" for="input">Location</label>-->
-<input class='ml-2' placeholder='search' id="input">
-<button class="bg-primary text-white ml-3" id="btn">Find</button>
-<br>
-<br>
-<div class="d-flex text-center mb-3" id="weather"></div>
-<div class="m-auto w-100" id='map' style='width: 600px; height: 500px;'></div>
+<!-- MAIN-->
+<body>
+    <section class="d-flex bg-primary text-white">
+        <h1 class="p-2 text-center mr-auto">Weather App</h1>
+        <h4 class="" id="subHead"></h4>
+        <h4 class="mx-4 mt-1" id="temperature"></h4>
+    </section>
+    <br>
+    <input class='p-1 pl-3' placeholder='search location' id="input">
+    <button class="bg-primary text-white ml-2" id="btn">Find</button>
+<!--    <button class="bg-primary text-white ml-2" id="celsiusbtn">CELSIUS</button>-->
+    <br>
+    <br>
+    <h6 class="mx-5 text-danger" id="alerts"></h6>
+    <div class="d-flex text-center m-1" id="weather"></div>
+<div class="m-auto" id='map'></div>
 
+<!--SCRIPTS-->
 <script src="js/keys.js"></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
 <script src="js/map-geocoder-utils.js"></script>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
 
-<!--    INITIAL COORDINATES-->
+// INITIAL COORDINATES
     var coordinates = [-98.4936, 29.4241];
-    var coordinatesLon = coordinates[0];
-    var coordinatesLat = coordinates[1];
+    var lon = coordinates[0];
+    var lat = coordinates[1];
 
 // MAP
 mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
@@ -56,7 +93,7 @@ mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
         zoom: 10
     });
 
-    // CREATE MARKER
+// CREATE MARKER
     var marker = new mapboxgl.Marker({
         color: 'red',
     })
@@ -64,63 +101,92 @@ mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
         .setDraggable(true)
         .addTo(map);
 
-//    GET OPEN WEATHER DATA AND FEED INTO SITE
+// GET OPEN WEATHER DATA AND FEED INTO SITE
 function setWeather() {
     $.get("http://api.openweathermap.org/data/2.5/onecall", {
         APPID: OPEN_WEATHER_APPID,
-        lon: coordinatesLon,
-        lat: coordinatesLat,
+        lon: lon,
+        lat: lat,
         units: "imperial"
     }).done(function (data) {
         console.log(data);
         $("#weather").html("");
         for (var i = 0; i < data.daily.length - 3; i++) {
-
-            // work on these 2 lines
             var today = data.daily[i];
             var todayDate = new Date(today.dt * 1000).toDateString();
             var iconcode = today.weather[0].icon;
             var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+            var html =
+                '<div class="card w-100 m-2">'
+                    + '<div class="card-header m-0 text-center">' + todayDate + '</div>'
 
-            // console.log(data.alerts)
 
-            var html = '<div class="card w-100 m-1">'
-            + '<div class="card-header">' + todayDate + '</div>'
-            + '<div class="text-center" id="icon"><img alt="Weather" id="wicon" src=' + iconurl + '></div>'
 
-            + '<div><p class="text-primary">' + today.temp.min.toFixed(0) + '</p> / <p class="text-danger"> ' + today.temp.max.toFixed(0) + '</p><span>&#8457;</span></div>'
+                    + '<div id="farenheight" class="d-flex justify-content-center">'
+                        + '<div class="text-primary m-1">' + today.temp.min.toFixed(0) + '</div>'
+                        + '<div class="text-danger m-1">' + '/ ' + today.temp.max.toFixed(0) + '</div>'
+                        + '<span class="p-1">&#8457;</span>'
+                    + '</div>'
 
-                + '<div>Description: <strong>' + today.weather[0].description + '</strong>' + '</div>'
-            // + '<div>Humidity: <strong>' + today.humidity + '</strong></div>'
-            + '<div>Wind: ' + '<strong>' + today.wind_speed.toFixed(0) + ' mph</strong></div>'
-            // + '<div>Pressure: <strong>' + today.pressure + '</strong></div>'
-            + '</div></div>'
+                    //
+                    // +'<div id="celsius" class="hide d-flex justify-content-center">'
+                    //     + '<div class="text-primary m-1">' + today.temp.min + '</div>'
+                    //     + '<div class="text-danger m-1">' + '/ ' + today.temp.max + '</div>'
+                    //     + '<span class="p-1">&#8451;</span>'
+                    // + '</div>'
+
+
+
+
+                    + '<div class="text-center" id="icon"> <img alt="Weather" id="wicon" src=' + iconurl + '> </div>'
+                    + '<div>' + today.weather[0].description + '</div>'
+                    + '<div><i class="fas fa-tint"></i> ' + today.pop * 100 + ' %</div>'
+                    + '<div><i class="fas fa-wind"></i> ' + today.wind_speed.toFixed(0) + ' mph </div>'
+                    + '<div>Humidity: <strong>' + today.humidity + '</strong></div>'
+                + '</div>';
+
+            console.log(data.current.uvi);
+
             $('#weather').append(html);
         }
-function severeWeather() {
-    for (var i = 0; i < data.alerts.length; i++) {
+// WEATHER ALERTS
+    function severeWeather() {
         $('#alerts').html("");
-        var warning = data.alerts[i].description + '<br><br>'
-        $('#alerts').append(warning);
+        for (var i = 0; i < data.alerts.length; i++) {
+            var warning =
+                '<p class="text-uppercase m-0 font-weight-bold">' + data.alerts[i].event + ':</p>'
+                + data.alerts[i].description + '<br><br>';
+            $('#alerts').append(warning);
+        }
     }
-}
-        severeWeather()
+        function current() {
+            $('#temperature').html("");
+            var iconcode = data.current.weather[0].icon;
+            var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+            var currentConditions =
+                data.current.temp.toFixed(0) + '<span>&#8457;</span>'
+                + '<img class="mr-3" alt="Weather" id="icon" src=' + iconurl + '>'
+                // + '<p class="text-warning">UV / ' + data.current.uvi + '</p>';
+            $('#temperature').append(currentConditions);
+        }
+        current();
+        severeWeather();
     });
 }
 setWeather();
 
 // UPDATES FORECAST TO AREA OF MAP MARKER IS DRAGGED!
 marker.on('dragend', function () {
-    coordinatesLon = marker.getLngLat().lng;
-    coordinatesLat = marker.getLngLat().lat;
+    lon = marker.getLngLat().lng;
+    lat = marker.getLngLat().lat;
     setWeather();
     reverseGeo();
 });
 
 // FLY TO NEW LOCATION AND RESET MARKER VIA SEARCHBOX INFO
-$('#btn').click(function () {
+function fly() {
     var userInput = $('#input').val();
-    geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info){
+    geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info) {
         console.log(info);
         var newCenter = {
             lng: info[0],
@@ -131,39 +197,55 @@ $('#btn').click(function () {
             .setLngLat(newCenter)
             .setDraggable(true)
             .addTo(map)
-            .setLngLat(newCenter);
-        coordinatesLon = info[0]
-        coordinatesLat = info[1]
+        lon = info[0]
+        lat = info[1]
         setWeather();
         reverseGeo();
     });
+}
+// click button or press enter both trigger fly function
+$('#btn').click(fly);
+$("#input").keyup(function(event) {
+    event.keyCode === 13? fly(): null;
 });
 
 // REVERSE GEOCODE TO FEED INTO SUBHEADER
 function reverseGeo() {
-    $.get("http://api.openweathermap.org/geo/1.0/reverse?lat=" + coordinatesLat + "&lon=" + coordinatesLon + "&limit=" + 5 + "&appid=" + OPEN_WEATHER_APPID)
+    $.get("http://api.openweathermap.org/geo/1.0/reverse?lat=" + lat + "&lon=" + lon + "&limit=" + 5 + "&appid=" + OPEN_WEATHER_APPID)
     .done(function (data) {
         $("#subHead").html("");
-        var html = data[0].name + ', ' + data[0].state; // 'name' = city
+        var html = data[0].name + ', ' + data[0].state
         $('#subHead').append(html);
     });
 }
 reverseGeo();
 
-function radar() {
-    $.get("https://tile.openweathermap.org/map/precipitation_new/15/-98.4936/29.4241.png?appid=" + OPEN_WEATHER_APPID)
-        .done(function (data) {
-console.log(data)
-
-        });
-}
-radar();
-
 // ZOOM CONTROLS TOP RIGHT
 map.addControl(new mapboxgl.NavigationControl());
 
-// WEATHER ALERTS
+// radar
+// 7 n 10 day
+// Click change to celsius
+//mobile view
 
+// function celsius() {
+//     $.get("http://api.openweathermap.org/data/2.5/onecall", {
+//         APPID: OPEN_WEATHER_APPID,
+//         lon: lon,
+//         lat: lat,
+//         units: "imperial"
+//     }).done(function (data) {
+//
+//         var html =
+//
+//
+//     });
+// }
+
+// $("#celsiusbtn").click(function() {
+//     $('#farenheight').css('display', 'none');
+//     // $('#celsius').toggleClass('hide');
+// });
 
 </script>
 </body>

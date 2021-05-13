@@ -1,0 +1,65 @@
+<!--DOM PREP CODE-->
+
+<!--## Main Concepts to be Assessed-->
+<!-- - Browser Object Model-->
+https://java.codeup.com/javascript-i/bom-and-dom/bom/
+
+
+<!-- - Document Object Model-->
+<!-- - Manipulation of the DOM-->
+<!-- - DOM Events-->
+<!--## Skills Not Currently Being Assessed-->
+<!-- - AJAX Requests with jQuery-->
+<!-- - Effects with jQuery-->
+<!--## DOM Manipulation Checklist-->
+<!--The following are several points of competency and skill that are intended to help identify areas of additional practice and study. Not all answers are found in the Codeup curriculum.-->
+<!--### Knowledge-->
+<!-- - [ ] I can identify the methods and properties of the Document Object Model.-->
+https://www.w3schools.com/jsref/dom_obj_document.asp
+
+
+<!-- - [ ] I can identify the various different events of the Document Object Model.-->
+var listener = function (event) {
+alert('You clicked the button!');
+}
+document.getElementById('btn1').addEventListener('click', listener);
+
+https://www.w3schools.com/jsref/dom_obj_event.asp
+
+
+<!-- - [ ] I can identify the moving parts of a setInterval and setTimeout.-->
+<!-- - [ ] I can make use of the jQuery CDN when needed.-->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="crossorigin="anonymous"></script>
+
+
+<!--### Skills-->
+<!-- - [ ] I can alter the styling and content of a page using either vanilla JavaScript or jQuery.-->
+<!--modify styling-->
+$('li').click(function() {
+$(this).css('background-color', 'orangered');
+});
+
+
+<!-- modify html-->
+$("#subHead").html("");
+var html = data[0].name + ', ' + data[0].state; // 'name' = city
+$('#subHead').append(html);
+
+
+<!-- - [ ] I can use the various identifiers of HTML elements in order to manipulate the DOM using either vanilla JavaScript or jQuery.-->
+$('ID or whatever').click(function() {
+});
+
+
+<!-- - [ ] I can write code that will execute after a set amount of time.-->
+setTimeout(function(){  $('#one').toggleClass('hide'); }, 3000);
+
+
+<!-- - [ ] I can write code that will repeat after a set amount of time.-->
+setInterval(function(){  $('#two').toggleClass('hide'); }, 5000);
+
+
+<!-- - [ ] I can write code that will execute when certain events happen on the page.-->
+$('li').click(function() {
+$(this).css('background-color', 'orangered');
+});
