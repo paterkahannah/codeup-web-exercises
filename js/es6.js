@@ -53,9 +53,14 @@ let names = [];
 // TODO: rewrite the following using arrow functions
 
 users.forEach(user => emails.push(user.email));
-users.forEach(user => names.push(user.name));
+
+users.forEach(user => {
+  let {name} = user;
+  console.log(name);
+  return names.push(name);
+});
+
 console.log(emails);
-console.log(names);
 
 // TODO: replace `var` with `let` in the following declaration
 
@@ -65,10 +70,8 @@ let developers = [];
 // TODO: rewrite the assignment below to use template strings
 
 users.forEach(user => {
-const person = {name: user.name, email: user.email, languages: user.languages};
-const {name, email, languages} = person;
-
-developers.push(`${name} \'s email is ${email} ${name} knows ${languages.join(', ')}`);
+  const {name, email, languages} = user;
+  developers.push(`${name} \'s email is ${email} ${name} knows ${languages.join(', ')}`);
 });
 console.log(developers);
 
