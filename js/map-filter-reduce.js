@@ -38,48 +38,33 @@ const users = [
 ];
 console.log(users);
 
-//     Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
-
-const user = users.filter(function(n) {
-    return n.languages.length > 2;
-});
+// 2 Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
+const user = users.filter(users => users.languages.length > 2);
 console.log(user);
 
-//     Use .map to create an array of strings where each element is a user's email address
-
-const emails = users.map(n => n.email);
+// 3 Use .map to create an array of strings where each element is a user's email address
+const emails = users.map(users => users.email);
 console.log(emails);
 
-// Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
-
-const avgExperience = users.reduce((accumulation, user) => {
-    // return accumulation + user.yearsOfExperience;
-    return accumulation + user.yearsOfExperience / users.length;
-}, 0);
+// 4 Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
+const avgExperience = users.reduce((accumulation, user) => accumulation + user.yearsOfExperience / users.length, 0);
 console.log(avgExperience);
 
-//     Use .reduce to get the longest email from the list of users.
-
-const longestEmails = users.reduce((longest, current) => {
-   return longest.email.length > current.email.length ? longest : current ;
-}).email;
+// 5 Use .reduce to get the longest email from the list of users.
+const longestEmails = users.reduce((longest, current) =>
+    longest.email.length > current.email.length ? longest : current ).email;
 console.log(longestEmails);
 
-//     Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
-
-const names = users.reduce((accumulation, user) => {
-    // return accumulation + user.yearsOfExperience;
-    return accumulation + `${user.name}, `;
-}, 0);
+// 6 Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
+const names = users.reduce((accumulation, user) => accumulation + `, ${user.name}`, 0);
 console.log(names);
 
-// BONUS.reduce
-
-const uniqueLanguages = users.reduce((languages, user) => {
-    user.languages.forEach((language) => {
-        !languages.includes(language) ? languages.push(language) : null ;
+// BONUS .reduce
+const uniqueLanguages = users.reduce((finalList, currentEmail) => {
+    currentEmail.languages.map(language => {
+        !finalList.includes(language) ? finalList.push(language) : null ;
     });
-    return languages;
-}, [])
+    return finalList;
+}, []);
 
-console.log(uniqueLanguages);
+console.log(uniqueLanguages)
