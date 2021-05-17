@@ -72,20 +72,17 @@ let developers = [];
 users.forEach(user => {
   const {name, email, languages} = user;
   developers.push(`${name} \'s email is ${email} ${name} knows ${languages.join(', ')}`);
+
 });
 console.log(developers);
 
 // TODO: Use `let` for the following variable
+// TODO: rewrite the following loop to use a for..of loop
+// TODO: rewrite the assignment below to use template strings
 
 let list = `<ul>\n`;
-
-// TODO: rewrite the following loop to use a for..of loop
-
 for (let developer of developers) {
   list += `<li> ${developer} </li>\n`;
 }
-
-// TODO: rewrite the assignment below to use template strings
-
 list += `</ul>`;
 console.log(list);
