@@ -112,6 +112,7 @@
   <li>I'd go again</li>
 </ul>
   <button class="mt-5" id="first-btn">Click to highlight last list items</button>
+  <p>Click on a list group to see what happens</p>
 </div>
 
 <section class="d-flex flew-wrap m-3 row text-center">
@@ -134,7 +135,7 @@
   </div>
 </section>
 
-<p>First button swaps first and second picture / Third button swaps second and third picture / Second button swaps middle picture to either left or right, randomly</p>
+<p class="text-primary">First button swaps first and second picture / Third button swaps second and third picture / Second button swaps middle picture to either left or right, randomly</p>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossOrigin="anonymous"></script>
@@ -150,7 +151,7 @@
       $('dd').toggleClass('invisible');
     });
 
-    $('dt').click(function(event) {
+    $('dt').click(function() {
       // event.preventDefault();
       $(this).toggleClass('highlighted').siblings().removeClass("highlighted");
     });
