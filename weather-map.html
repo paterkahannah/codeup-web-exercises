@@ -9,52 +9,72 @@
     <link href="css/owfont-master/css/owfont-regular.css" rel="stylesheet" type="text/css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
         body {
             background: linear-gradient(-45deg, #eed952, #e73c7e, #23a6d5);
+            font-family: 'Nunito Sans', sans-serif;
         }
-        div {
+        #map, div {
             border-radius: 5px;
         }
         section {
             align-items: center;
         }
         img {
-            filter: grayscale(100%);
+            width: 40px;
+            height: 40px;
         }
         #map {
             height: 250px;
         }
-        input{
+        input {
             border-radius: 5px;
             border: none;
         }
         ::-webkit-input-placeholder {
             text-align: center;
         }
-
+        #alerts {
+            overflow: hidden;
+            /*text-overflow: ellipsis;*/
+            white-space: nowrap;
+        }
+        #alerts:hover {
+            white-space: normal;
+        }
+        .weather {
+            margin: .5em 0;
+        }
+        @media (max-width: 575px) {
+            body {
+                /*background: black;*/
+            }
+        }
         /*// Small devices (landscape phones, 576px and up)*/
         @media (min-width: 576px) {
             body {
-                background: yellow;
+                /*background: orange;*/
+            }
+            #subHead {
+                margin-right: auto;
             }
         }
         /*// Medium devices (tablets, 768px and up)*/
         @media (min-width: 768px) {
             body {
-                background: orange;
+                /*background: red;*/
             }
         }
         /*// Large devices (desktops, 992px and up)*/
         @media (min-width: 992px) {
             body {
-                background: red;
+                background: linear-gradient(-45deg, #eed952, #e73c7e, #23a6d5);
             }
         }
         /*// Extra large devices (large desktops, 1200px and up)*/
         @media (min-width: 1200px) {
             body {
-                background: blue;
+                /*background: blue;*/
             }
         }
     </style>
@@ -64,16 +84,15 @@
 <!-- MAIN-->
 <section class="text-white d-flex row text-center">
     <h1 class="col-12 my-3">Weather</h1>
-    <input class="col-8 m-auto p-2 text-center" placeholder='search' id="input">
+    <input class="col-6 m-auto p-2 text-center" placeholder='search' id="input">
     <div class="col-12 mt-3">
-        <h4 id="subHead"></h4>
-        <h4 id="temperature"></h4>
+        <h4 class="" id="subHead"></h4>
+        <h4 class="" id="temperature"></h4>
     </div>
 </section>
-<h6 class="mx-5 text-danger bg-warning" id="alerts"></h6>
-<div id="weather"></div>
-
-<div class="m-auto" id='map'></div>
+<div class="text-danger bg-white mb-2" id="alerts"></div>
+<div class="justify-content-center d-lg-flex" id="weather"></div>
+<div class="mt-2" id='map'></div>
 
 <!--SCRIPTS-->
 <script src="js/keys.js"></script>
@@ -200,8 +219,8 @@ var mapStyle = {
 // mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map', // ID
-        style: 'mapbox://styles/mapbox/dark-v10',
-        // style: mapStyle,
+        // style: 'mapbox://styles/mapbox/dark-v10',
+        style: mapStyle,
         center: coordinates, // [lng, lat]
         zoom: 9
     });
@@ -226,37 +245,25 @@ function setWeather() {
         $("#weather").html("");
         for (var i = 0; i < data.daily.length-1; i++) {
             var today = data.daily[i];
-
             var date = new Date(today.dt * 1000);
             var day = date.toLocaleString('en-us', {weekday: 'short'});
-            // var humanMonth = date.toLocaleString('en-us', {month: 'long'});
             var humanDate = date.toLocaleString('en-us', {day: 'numeric'});
-            // var sunrise = new Date(today.sunrise * 1000);
-            // var humanSunRise = sunrise.toLocaleTimeString('en-US');
-            // var sunset = new Date(today.sunset * 1000);
-            // var humanSunSet = sunset.toLocaleTimeString('en-US');
-
-            // console.log(day);
-            // console.log(humanDate);
-
-
-            // var todayDate = new Date(today.dt * 1000).toDateString();
             var iconurl = "http://openweathermap.org/img/w/" + today.weather[0].icon + ".png";
-            // var iconurl = today.weather[0].icon;
             var html =
-                `<div class="bg-white w-100 d-flex row m-1">
-                    <div class="col-3 d-flex align-items-center font-weight-bold"> ${day} ${humanDate} </div>
-                    <div class="col-3 m-auto">
-                        <div id="farenheight" class="d-flex justify-content-center row">
+                `<div class="weather bg-white w-100 row border m-lg-1">
+                    <div class="col-3 col-sm-2 col-lg-12 d-flex align-items-center font-weight-bold justify-content-center"> ${day} ${humanDate} </div>
+                    <div class="d-none d-sm-block col-sm-3 col-lg-12 text-center m-auto"><em> ${today.weather[0].description.replace('intensity', ' ')} </em> </div>
+                    <div class="col-3 col-sm-4 col-lg-12 m-auto">
+                        <div id="farenheight" class="d-flex row justify-content-center">
                             <div class="text-center col-12" id="icon"> <img alt="Weather" id="wicon" src= ${iconurl} > </div>
                             <div class="text-danger m-1"> ${today.temp.max.toFixed(0)} </div>
-                            <div class="text-primary m-1"> ${today.temp.min.toFixed(0)} <span class="p-1">&#8457;</span> </div>
-<!--                            <div class="text-center"><em> ${today.weather[0].description} </em> </div>-->
+                            <div class="text-primary m-1"> ${today.temp.min.toFixed(0)} </div>
+                            <span class="p-1">&#8457;</span>
                         </div>
                     </div>
-                    <div class="col-4 m-auto">
-                        <div class="text-left"> <i class="fas fa-tint mr-2 text-primary"> </i> ${(today.pop * 100).toFixed(0)} % </div>
-                        <div class="text-left"> <i class="fas fa-wind"> </i> ${today.wind_speed.toFixed(0)} mph </div>
+                    <div class="col-4 col-sm-3 col-lg-12 m-auto">
+                        <div class="text-left text-lg-center"> <i class="fas fa-tint mr-2 text-primary"> </i> ${(today.pop * 100).toFixed(0)} % </div>
+                        <div class="text-left text-lg-center mt-1"> <i class="fas fa-wind mr-2"> </i> ${today.wind_speed.toFixed(0)} mph </div>
 <!--                        <div class="text-left">Humidity: <strong> ${today.humidity} </strong> </div>-->
                     </div>
                 </div>`;
@@ -268,7 +275,7 @@ function setWeather() {
             $('#alerts').html("");
             for (var i = 0; i < data.alerts.length; i++) {
                 var warning =
-                    `<p class="text-uppercase m-0 font-weight-bold"> ${data.alerts[i].event} :</p> ${data.alerts[i].description} <br><br>`;
+                    `<div class="text-uppercase font-weight-bold"> ${data.alerts[i].event} :</div> <div class="">${data.alerts[i].description}</div> <br>`;
                 $('#alerts').append(warning);
             }
         }
@@ -277,7 +284,7 @@ function setWeather() {
             $('#temperature').html("");
             var iconurl = "http://openweathermap.org/img/w/" + data.current.weather[0].icon + ".png";
             var currentConditions =
-                `<p class="m-0">${data.current.temp.toFixed(0)} <span>&#8457;</span> <img class="" alt="Weather" id="icon" src=' ${iconurl} '> </p>`
+                `${data.current.temp.toFixed(0)} <span>&#8457;</span> <img class="" alt="Weather" id="icon" src=' ${iconurl} '>`
             $('#temperature').append(currentConditions);
         }
         current();
@@ -334,18 +341,19 @@ reverseGeo();
 map.addControl(new mapboxgl.NavigationControl());
 
 // NOTES
-// change color of site based on time of day?
+// i need to center the warning box
+// different icons
+// weather overlay
+// map style options dropdown
 // press and hold drop pen
-// collapse with smaller screen
 // hourly
 // 7-10 day
 // missy thing
 // celsius
 // fix warning colors
-// RADAR
-// change map style option
-// fix gray in date section when scrren smaller size
-// better icons
+// on click expand or boxes, expand arrow
+// sunrise sunset
+// make starting locaiton users current location
 
 </script>
 </body>
