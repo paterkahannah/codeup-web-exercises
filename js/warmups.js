@@ -12,7 +12,7 @@
 //         console.log(i)
 //     }
 // }
-//
+///////
 // // see davids es6 code
 //
 // // exercise 2, write function that retusn the number 7

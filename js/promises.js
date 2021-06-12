@@ -1,4 +1,4 @@
-'use struct';
+'use strict';
 
 const username = function usersLastCommit(username) {
     fetch('https://api.github.com/users/' + username + '/events', {
@@ -8,14 +8,12 @@ const username = function usersLastCommit(username) {
         .then(data => {
             console.log(data)
             let lastPush;
-
             for(let event of data) {
                 if (event.type === 'PushEvent') {
                     lastPush = new Date(event.created_at);
                     break;
                 }
             }
-
             // var date = new Date(data[0].created_at)
             var humanMonth = lastPush.toLocaleString('en-us', {month: 'long'});
             var humanDay = lastPush.toLocaleString('en-us', {weekday: 'short'});
@@ -29,9 +27,6 @@ const username = function usersLastCommit(username) {
         });
 }
 username('paterkahannah');
-
-
-
 function wait(number) {
     return new Promise((resolve) => {
         setTimeout(() => {
