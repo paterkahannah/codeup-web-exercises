@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--    Practice adding more info about site with meta tags-->
     <meta charset="UTF-8">
     <meta name="author" content="Coding Wan Kenobi">
     <meta name="description" content="This is a webpage made by me (Coding Wan Kenobi)">
@@ -8,21 +9,26 @@
     <link rel="icon" href="img/circle.png" type="image/x-icon">    <title>Ajax Blog</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
+
 <body style="background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);" class="m-5">
+
 <div id="posts"></div>
+
+<!-- SCRIPTS-->
 <script src="js/jquery-3.6.0.min.js"></script>
 <script>
     $.ajax("data/blog.json").done(function (data) {
         var blogs = '';
         $.each(data, function (key, value) {
-            blogs += '<h1 class="text-center m-5">' + value.title + '</h1>';
-            blogs += '<p>' + value.content + '</p>';
-            blogs += '<p>' + 'Categories: ' + value.categories.join(', ')+ '</p>';
-            blogs += '<p class="">' + value.date + '</p>';
-            blogs += '</tr>';
+            blogs += `<h1 class="text-center m-5"> ${value.title} </h1>
+            <p> ${value.content} </p>
+            <p> Categories : ${value.categories.join(', ')} </p>
+            <p class=""> ${value.date} </p>
+            </tr>`;
         });
         $('#posts').append(blogs);
     });
 </script>
+
 </body>
 </html>

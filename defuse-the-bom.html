@@ -30,12 +30,14 @@
     var detonationTimer = 5;
     var interval = 1000;
 
-    // TODO: This function needs to be called once every second
+    // this function is called once every second
     var timeOutId = setInterval(function updateTimer() {
+        // if timer reaches 0!
         if (detonationTimer === 0) {
             document.body.innerHTML = '<h1>TERMINATED</h1>';
             setInterval(function(){  $('h1').toggleClass('hide'); }, 500);
             $('body').css('background', 'red');
+        //    during the countdown, any second before 0, detonationTimer is decremented--
         } else if (detonationTimer > 0) {
             document.getElementById('timer').innerHTML = detonationTimer;
         }
