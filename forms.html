@@ -1,55 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Register With Us</title>
+    <title>Register With Us!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
-        body {
-            background: #ffb724;
+        .hide {
+            display: none;
+            /*    this needed? */
         }
     </style>
 </head>
-
-<body>
-<h1>Register With Us!</h1>
-<form method="POST" action="https://request-inspector.glitch.me/">
-    <label for="email">Email</label>
-    <input type="text" id="email" name="email" placeholder="email">
-    <br>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="password">
-    <br>
-    <br>
-    <label for="bio">About you!</label>
-    <br>
-    <textarea name="bio" id="bio" style="width: 200px; height: 100px" placeholder="Tell us about yourself!"></textarea>
-    <br>
-    <h3>How did you hear about us?</h3>
-    <input type="radio" name="ad" id="a" value="billboard">
-    <label for="a">Billboard</label>
-    <br>
-    <input type="radio" name="ad" id="b" value="radio advertisement">
-    <label for="b">Radio Ad</label>
-    <br>
-    <input type="radio" name="ad" id="c" value="internet advertisement">
-    <label for="c">Internet Ad</label>
-    <br>
-    <input type="radio" name="ad" id="d" value="other">
-    <label for="d">Other</label>
-    <br>
-    <br>
-    <label for="browser">What browser are you using?</label>
-    <br>
-    <select name="browser" id="browser">
-        <option value="Chrome">Chrome</option>
-        <option value="Firefox">Firefox</option>
-        <option value="Opera">Opera</option>
-        <option value="Tor">Tor</option>
+<body class="container">
+<h1 class="d-flex justify-content-center my-4">Register with us!</h1>
+<!--form highlights red missed reqs for each field on first failed attempt, and green checks for reqs already met, quick clarity, ref dreamTeam project-->
+<form action="https://request-inspector.glitch.me" method="POST" class="col-7 m-auto">
+    <!--    EMAIL, PASS-->
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label><span class="required text-danger"> *</span>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
+    </div>
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label><span class="required text-danger"> *</span>
+        <input type="text" class="form-control" id="username" name="username" required>
+    </div>
+    <!--    password certain length and special characters, or check security-->
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label><span class="required text-danger"> *</span>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <div class="mb-3">
+        <label for="confirm_password" class="form-label">Confirm password</label><span class="required text-danger"> *</span>
+        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+    </div>
+    <!--    -->
+    <label for="bio" class="form-label">About Me</label>
+    <textarea class="form-control" id="bio" name="bio" style="height: 200px"></textarea>
+    <h4 class="d-flex justify-content-center my-3">How did you hear about us?</h4>
+    <!--    CHECKBOXES-->
+    <div class="form-check">
+        <input class="form-check-input" type="radio" value="billboard" id="billboard" name="ad">
+        <label class="form-check-label" for="billboard">
+            Billboard
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" value="radio" id="radio" name="ad">
+        <label class="form-check-label" for="radio">
+            Radio
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" value="internet" id="internet" name="ad">
+        <label class="form-check-label" for="internet">
+            Internet
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" value="other" id="other" name="ad">
+        <label class="form-check-label" for="other">
+            Other
+        </label>
+    </div>
+    <!--    sticky form to save typing in case they go back, on other option-->
+    <textarea class="form-control hide" id="expand_other" name="expand_other" style="height: 200px"></textarea>
+    <!--    PREFERRED BROWSER-->
+    <select class="form-select my-4" aria-label="Default select example" name="browser_preference" required>
+        <option selected>What browser do you prefer?</option>
+        <option value="chrome">Chrome</option>
+        <option value="firefox">Firefox</option>
+        <option value="safari">Safari</option>
     </select>
-    <br>
-    <br>
-    <button type="submit">Submit</button>
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
 </form>
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+<script>
+
+    let password = document.getElementById("password") // get rid of this vanilla javascript
+        , confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+        password.value !== confirm_password.value ?
+            confirm_password.setCustomValidity("Passwords Don't Match")
+            : confirm_password.setCustomValidity('');
+    }
+    password.onchange = validatePassword; // suss and understand this code better
+    confirm_password.onkeyup = validatePassword;
+
+    $("#other").click(function() {
+        $('#expand_other').show();
+    });
+    $('#billboard, #radio, #internet').click(function() {
+        $('#expand_other').hide();
+    });
+
+</script>
 </body>
 </html>
+
+<!--
+ENTER to hop to next box?
+stop from totally shrinking
+post on github somewhere, make readme explaining all features and gifcap
+-->
